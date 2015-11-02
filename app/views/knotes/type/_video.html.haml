@@ -1,0 +1,39 @@
+- if video_id = video.video_id
+  .video_knote
+    .video_player
+      .youtube.round_corners{ :id => video.id }
+        %p You need Flash Player 8+ and JavaScript enabled to view this video!
+      :javascript
+        var params = { allowScriptAccess: "always", allowFullScreen: "true" };
+        var atts = { id: "#{video.id}" };
+        swfobject.embedSWF("http://www.youtube.com/v/#{video_id}&hl=en&fs=1&enablejsapi=1#{video.start_at}", "#{video.id}", "400", "300", "8", null, null, params, atts);
+
+        function onYouTubePlayerReady(playerId){
+          player = document.getElementById("#{video.id}");
+          setInterval(check_time, 1000);
+        }
+      - unless video.end_time.nil? || video.end_time <= video.start_time
+        :javascript
+          function check_time(){
+            if((player) && (parseInt(player.getCurrentTime()) == #{video.end_at})){
+              player.pauseVideo();
+            }
+          }
+      .clear
+    .video_caption
+      - unless video.caption.blank?
+        %p
+          %span.video_label Description:
+          = video.caption
+        %br
+      - if video.user.is_org?
+        .video_grabatar= link_to image_tag(video.user.logo), video.user, :title => video.user.org_name
+      .print_url
+        %p
+          %span.video_label URL:
+          = video.url
+      .clear
+  .clear
+- else
+  %span.video_label Error: We couldn't find that video!
+  .clear

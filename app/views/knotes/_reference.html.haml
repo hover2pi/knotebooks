@@ -1,0 +1,5 @@
+%li{ :id => "ref-#{knote.to_param}", :style => "display: #{knote.source.blank? ? 'none' : 'visible'}" }
+  = link_to knote.title, "#knote_#{knote.to_param}", :id => "ref-#{knote.to_param}"
+  \ -
+  = knote.source
+  = license_image_tag knote

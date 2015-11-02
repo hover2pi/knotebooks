@@ -1,0 +1,24 @@
+.grid_13.alpha.omega
+  .knote_details
+    .knote_concepts
+      %span.knote_content_type= knote.content_type
+      %span.knote_concept_list= knote.concepts_list
+    .knote_buttons
+      = link_to image_tag("/images/trash.png", :alt => "Remove Knote", :title => "Remove knote"), "javascript:void(0)", :class => "remove_knote", :confirm => "Are you sure you want to remove this knote? (You can reload the page to retrieve it.)"
+      \|
+      %span.hide= link_to "<img src=\"/images/collapse.gif\">Collapse", "javascript:void(0)", :onClick => "this.innerHTML = (this.innerHTML == '<img src=\"/images/collapse.gif\">Collapse' ? '<img src=\"/images/expand.gif\">Expand' : '<img src=\"/images/collapse.gif\">Collapse');", :title => "Collapse/expand knote content"
+      \|
+      = link_to image_tag("/images/reference.png", :alt => "View References") + "References", "#ref-#{knote.to_param}", :title => "View knote references"
+      \|
+      = link_to image_tag("/images/restore.png", :alt => "Restore Knote") + "Restore", restore_knotebook_knote_path(@knotebook, knote), :title => "Restore original knote", :class => "restore"
+    .knote_swap
+      .easier_harder
+        = link_to_ajax "Harder", harder_knotebook_knote_path(@knotebook, knote), :class => "harder_knote", :title => 'Find harder knote'
+        &nbsp;|&nbsp;
+        = link_to_ajax "Easier", easier_knotebook_knote_path(@knotebook, knote), :class => "easier_knote", :title => 'Find easier knote'
+      .media_type_select
+        - form_for [@knotebook, knote] do |f|
+          = text_field_tag :use_new, use_new, { :style => 'display: none'} if defined? use_new
+          = f.select :knote_type, Knote.select_options("Any"), {:selected => (params[:knote_type] || "Any")}
+    .clear
+.clear

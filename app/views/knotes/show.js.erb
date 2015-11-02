@@ -1,0 +1,13 @@
+$('div.knote').eq(<%= escape_javascript(params[:position]) %>).fadeOut(function(){
+  $(this).replaceWith('<%= escape_javascript(render :partial => "knotes/knote", :object => @knote)%>').hide().fadeIn();
+});
+
+$('ul#knotes_toc li').eq(<%= escape_javascript(params[:position]) %>).fadeOut(function(){
+  $(this).replaceWith('<%= escape_javascript(render :partial => "knotes/sidebar/show", :locals => { :knote => @knote })%>').hide().fadeIn();
+});
+
+$('div#references li').eq(<%= escape_javascript(params[:position]) %>).fadeOut(function(){
+  $(this).replaceWith('<%= escape_javascript(render :partial => "knotes/reference", :locals => { :knote => @knote })%>').hide().fadeIn();
+});
+
+<%= render :partial => "shared/growl" %>

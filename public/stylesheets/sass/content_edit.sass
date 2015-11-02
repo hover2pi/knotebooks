@@ -1,0 +1,263 @@
+@import constants.sass
+
+#new_knotebook_sidebar  
+  ol#concepts_list
+    div
+      :line-height = !h4
+      :margin-bottom = !h7
+      :font-size = 0.9em
+    div:last-child
+      :margin-bottom 0
+  .add_knote
+    :width 142px
+    :margin = !h6 0
+  .search_knote
+    :width 146px
+
+// Input boxes from _knotebook_form.html.haml
+#new_knotebook
+  input#knotebook_title
+    :width = 752px
+    :font-size = !h5
+    :margin-bottom = !h5
+  textarea#knotebook_abstract
+    :font-family "Myriad Pro", Myriad, Arial, sans-serif
+    :font-size = !h6
+    :height = 55px
+    :font-style italic
+    :width 757px
+    :margin-bottom = !h5
+  span.remaining
+    :float right
+    :margin-right = !h9
+    :font-size = !h6
+    :color = !grey_dark
+    &.over
+      :color = !red_dark
+      :font-weight bold
+  .kb_concepts, .kb_difficulty
+    :background-color = !highlight
+    :border = !thin
+    :font-size = !h6
+    :padding = !h7
+    :margin-bottom = !h5
+    :line-height = !h4
+    span.diff-slider-title, span.the_concepts
+      :font-weight bold
+    input#amount
+      :font-size = !h6
+      :color = !blue_dark !important
+    .the_slider
+      :padding = !h5 !h7 0 !h7
+      #slider-range .ui-slider-range
+        :background = !blue_dark
+      table#diff-scale 
+        :width 100%
+        :margin-top = -25px
+        tr td
+          :width 25%
+          :text-align center
+          :padding = !h2 0 !h8 0
+          :font-weight bold
+          :border-left = !dark
+          &:first-child
+            :border-left = 0
+      .ui-corner-all
+        :-moz-border-radius 4px
+        :-webkit-border-radius 4px
+        :border-radius 4px
+      .ui-state-default
+        :background = transparent url("/images/button_middle.png") repeat-x top
+        :border = !dark
+        &.ui-state-hover
+          :background-position center
+          :border-color = #a0b4cc
+        &.ui-state-active
+          :background-position bottom
+          :border-color = #a0b4cc
+  #knotes_list
+    .edit_knote_container
+      :background-color = !highlight
+      :padding = !h6
+      :border = !thin
+      :margin = 0
+      textarea.comment_text
+        :width 100%
+        :height 100px
+      .mce_fullscreen
+        &:after
+          :content 'Fullscreen Editor' 
+          :line-height = 1.7em
+          :padding-left = 1.8em
+          :font-size = !h6
+          :color = !black
+      .mce_latex
+        :width 42px
+        img
+          :width 38px
+          :height 16px
+          :padding 2px
+      .edit_knote_title_container
+        .kn_title_label
+          :float left
+          :width 5%
+          :margin-top = !h9
+        .kn_title_input
+          :float right
+          :width 94%
+          :margin-right = 6px
+          input.title_knote
+            :width 100%
+      .edit_knote_type
+        :margin = !h6 0
+        .edit_knote_type_container 
+          :margin-top = 2px
+          :float left
+          :width 54%
+          :overflow hidden
+          select
+            :margin = 0 !h9
+        .edit_knote_about
+          :float right
+          :width 46%
+          label
+            :padding-top = 3px
+            :float left
+          input.about_knote
+            :width = 85%
+            :float right
+      .edit_video_container
+        :background-color = #f2f2f2
+        .url_container
+          :float left
+          :width 45%
+          .knote_video_url
+            :width 95%
+          .start_stop
+            :width 100%
+            input
+              :width 5em
+            .start
+              :float left
+              :width 46%
+            .stop
+              :float right
+              :width 45%
+          .video_tip
+            :font-size = !h6  
+            :margin = !h8 0 !h4 0
+            :color = !grey_dark
+            :white-space nowrap
+        .caption_container
+          :float right
+          :width 50%
+          textarea.knote_video_caption
+            :text-align bottom
+            :width 100%
+            :height 72px
+      .edit_knote_buttons
+        :margin-top = !h7
+        .add, .cancel
+          :display inline
+          :float left
+          :margin-right = !h8
+        .delete
+          :float right
+          button
+            :padding = 0 !h9     
+      .edit_knote_source_container, .edit_knote_license_container
+        :margin-top = !h6
+        img
+          :vertical-align middle
+          :margin-left = !h9
+          :padding-bottom 2px
+        .manual_ref, .or, .auto_ref
+          :float left
+        .or
+          :margin = 0 !h4
+          :font-weight bold
+          :line-height 18px
+        textarea
+          :width 100%
+          :height = 30px
+        .license
+          :float right
+          select
+            :margin-left = !h8        
+
+.new_knote_search_container
+  .new_knote_search_contents
+    :background-color = !highlight
+    :padding = !h7
+    :margin-bottom = !h7
+    :border = !thin
+    .new_knote_search
+      :float left
+      :width 75%
+      label
+        :font-weight bold
+      input.search_knotes
+        :width 25em
+        :margin-left = !h9
+      button.knote_search
+        :display inline 
+        &:active
+          :padding-bottom 2px
+    .use_it
+      button.knote_use
+        :float right
+  .new_knote_search_results
+    .knote
+      span.knote_content_tab
+        :display none
+      .knote_title_container
+        .knote_expand
+          :display none
+      .search_knote_details
+        :display block
+        :background-color = !highlight
+        :padding = !h7
+        :border = !thin
+        :border-top none
+        :font-size = !h6
+        :width = 741px
+        span.knote_content_type
+          :color = !grey_dark
+          :text-transform capitalize
+          :padding-right = !h8
+          &:after
+            :content ":"
+        span.knote_concept_list
+          :line-height = !h4
+  .no_knotes_found
+    :text-align center
+    :margin = !h1 0 !h2 0
+  .cancel_search
+    :margin-top = !h7
+    :width 72px
+    a
+      :display inline
+
+ul.ui-autocomplete
+  :width 286px
+  li
+    :margin 0
+    :padding 0
+    :list-style none
+  li a
+    :color = !black
+    :font-size = !h7
+    :padding = !h8 !h7
+    :margin 0
+    :display block
+    :border 0
+    :font-weight normal
+    :font-weight bold
+  .ui-state-hover, .ui-state-focus
+    :background = !lightest
+    :color = !blue_dark
+    :border 0 !important
+    :font-weight bold
+    :cursor pointer !important
+      
+    

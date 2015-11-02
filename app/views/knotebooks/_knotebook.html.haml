@@ -1,0 +1,21 @@
+.list_elements{ :class => cycle('odd', 'even') }
+  .grid_3.alpha
+    .kb_title
+      %p= link_to knotebook.title, kb_url(knotebook)
+      .clear
+      %span.kb_author
+        - if knotebook.user == current_user
+          = link_to 'Edit this knotebook', edit_knotebook_path(knotebook)
+        - else  
+          By
+          = link_to knotebook.user.login, knotebook.user
+      .clear
+    .clear
+  .grid_6
+    .kb_abstract
+      %p=h knotebook.abstract
+  .grid_4.omega
+    .kb_concept_list
+      %p= knotebook.concepts_list.join ', '
+  .clear
+.clear

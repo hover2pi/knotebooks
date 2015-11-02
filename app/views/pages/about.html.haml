@@ -1,0 +1,56 @@
+#about_page
+  .grid_3= render :partial => 'pages/skyscraper_ad'
+  .grid_13
+    %h3 A Little Bit About Knotebooks
+    %hr
+    %p Knotebooks is a unique approach to the open educational resource (OER) movement, providing users with the tools to create, collaborate on and share customized, self-guided physics lessons. Whether you are a student, teacher, professional or self-learner, we think you'll really enjoy being a part of this burgeoning educational community.
+    %p Our goal is simple: to make all physics — from the basics of classical mechanics to the cutting edge research in high-energy topics — accessible, understandable, interactive and free. As a company, our mission is to expedite access to knowledge and create more effective methods of learning using customizable, student-focused tools. 
+    %ul
+      %li Create self-guided multimedia lessons, study guides and course supplements for college and graduate level physics using a global body of knowledge.
+      %li Share, collaborate and get help on any topic in physics within a community of academic minds, fully referenced material and peer reviewed content.
+      %li Custom build a lesson according to your (or your audience's) specific level of knowledge and style of learning for a more fruitful online academic pursuit.
+    %br  
+    %h3 A Word About Who We Are 
+    %hr
+    %p Knotebooks was created by Joe Filippazzo and Tom Clark, two ambitious young entrepreneurs with several years of start-up management experience and an impressive repertoire of jokes about wave functions. 
+    %p Our advisory board includes:
+    %ul
+      %li 
+        = link_to "Jeff Jarvis", "http://www.buzzmachine.com/about-me/", :target => '_blank'
+        is a news and media blogger, the author of 
+        %em What Would Google Do?
+        , a columnist for the Guardian
+        and the director of interactive journalism at the CUNY Graduate School of Journalism.
+      %li
+        = link_to "Upendra Shardanand", "http://corp.daylife.com/team", :target => '_blank'
+        is an entrepreneur, an investor and the founder and chief executive of Daylife.com, a newsware engine for globally syndicated multimedia.
+      %li
+        = link_to "Adam Bly", "http://seedmediagroup.com/about/team/adam-bly/", :target => '_blank'
+        is the founder, CEO and Editor-in-Chief of Seed, a global media and technology company which publishes Seed Magazine and ScienceBlogs.com.
+      %li
+        = link_to "Ed Sussman", "http://edsussman.wordpress.com/about/", :target => '_blank'
+        is the CEO of Buzzr.com, a publishing platform for businesses and individuals to create media-rich Web sites, and the former president of Mansueto Digital, publisher of FastCompany.com and Inc.com.
+      %li
+        = link_to "Dr. R. David Bynum", "http://www.stonybrook.edu/cesame/about/faculty_staff/Bynum/Bynum.html", :target => '_blank'
+        is an educator of 27 years and the founding director of CESAME (the Center for Science and Mathematics Education) at Stony Brook University, a organization that provides opportunity, experience and support to students of science and math.
+    %br
+    %h3 Contact Us
+    %hr
+    %p
+      General inquiries, unequivocal accolades or questions about how to get involved can all be directed to our 
+      = link_to "contact email address", "mailto:contact@knotebooks.com"
+      \. On the entirety of the Internet, you will never receive a more prompt response. Please be sure to check our page of 
+      = link_to "frequently asked questions", pages_path(:faq)
+      first.
+    %p We look forward to hearing from you! Let us know what you think about the site and thanks for checking us out.
+    %br
+    %h3 Acknowledgements
+    %hr
+    .about_left_icons
+      .creative_commons= link_to image_tag("/images/creative_commons.png"), "http://creativecommons.org/", :target => '_blank'
+      .famfamfam= link_to image_tag("/images/famfamfam.png"), "http://www.famfamfam.com/", :target => '_blank'
+    .about_right_icons  
+      .jquery= link_to image_tag("/images/jquery.png"), "http://jquery.com/", :target => '_blank'
+      .rails= link_to image_tag("/images/rails.png"), "http://rubyonrails.org/", :target => '_blank'
+  .clear
+.clear

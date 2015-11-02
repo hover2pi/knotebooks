@@ -1,0 +1,33 @@
+.grid_3#new_knotebook_sidebar
+  %h4 Knotes
+  .tips Add some knotes, then click to edit or drag to reorder.
+  %hr
+  %ol#concepts_list.red_links
+    = render :partial => 'knotes/sidebar/edit', :collection => @knotebook.knotes, :as => :knote
+  %hr
+  .add_knote.ajax= link_to_button "Add a new knote", new_knotebook_knote_path(@knotebook), :id => "knote_add"
+  .search_knote.ajax= link_to_button "Search for knotes", search_knotebook_knotes_path(@knotebook), :id => "knote_search"
+  .clear
+
+- content_for :javascript do
+  :javascript
+    $(function(){
+      $('#new_knotebook_sidebar').sortable({
+        axis: 'y',
+        handle: '.handle',
+        cursor: 'move',
+        items: '.knote',
+        scroll: true,
+        update: function(event, ui) {
+          $.post('#{escape_javascript(sort_knotebook_path(@knotebook))}', $('#new_knotebook_sidebar').sortable('serialize'), ui.item.effect("highlight"), "script");
+        }
+      });
+      $('.edit_knote_source_container :radio').live("change", function(){
+        if($(this).val() == "auto"){
+          $("textarea#knote_source").attr('disabled', true);
+        } else {
+          $("textarea#knote_source").removeAttr('disabled');
+        }
+      });
+    });
+  = render :partial => 'shared/tinymce'

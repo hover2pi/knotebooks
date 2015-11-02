@@ -1,0 +1,13 @@
+- if logged_in? && @knotebook.user == current_user
+  %span.edit_link= link_to 'Edit this knotebook', edit_knotebook_path(@knotebook)
+- else
+  = link_to "Created by #{@knotebook.user.login}", @knotebook.user
+- if logged_in? && current_user.is_admin?
+  \|
+  = link_to "Feature", feature_knotebook_path(@knotebook)
+  \|
+  = link_to "Hide", ignore_knotebook_path(@knotebook)
+- if logged_in? && @knotebook.user != current_user
+  \|
+  .save_to_favorites
+    = link_to "Save to My Favorites" + image_tag('/images/star.png'), create_favorite_url(@knotebook), :class => "favorite"

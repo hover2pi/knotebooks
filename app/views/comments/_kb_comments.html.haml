@@ -1,0 +1,72 @@
+#comments
+  .container_16
+    - if logged_in?
+      .grid_3
+        .comment_sidebar.red_links
+          .comment_table_of_contents
+            .table_of_contents Table of Contents:
+            %ul.comments_toc
+              %li.sidebar_link= link_to 'Top of Page', '#'
+              = render :partial => "knotes/sidebar/show", :collection => @knotebook.knotes, :as => :knote
+              %li.sidebar_link= link_to 'References', "#references"
+      .grid_13
+        - unless @comments.empty?
+          .comments_container
+            .comments_title
+              Comments for
+              = link_to @knotebook.title, @knotebook
+              (
+              = @comments.count
+              )
+            .clear
+            .comments_list= render :partial => @comments
+            .clear
+          .clear
+        .comments_submit_form
+          .comments_title 
+            Leave a comment for
+            = link_to @knotebook.title, kb_url(@knotebook)
+          .clear
+          - form_for [@knotebook, Comment.new], :method => :post do |comment|
+            .commenter
+              = link_to current_user.login, current_user
+              said:
+            .clear
+            = comment.text_area :body, :class => 'RTE comment_text'
+            .clear
+            %br
+            %button.submit_comment{ :type => 'submit'} Submit comment
+    - else
+      - unless @comments.empty?
+        .grid_3
+          .comment_sidebar.red_links
+            .comment_table_of_contents
+              .table_of_contents Table of Contents:
+              %ul.knotes_toc
+                %li.sidebar_link= link_to 'Top of Page', '#'
+                = render :partial => "knotes/sidebar/show", :collection => @knotebook.knotes, :as => :knote
+                %li.sidebar_link= link_to 'References', "#references"
+        .grid_13
+          .comments_container
+            .comments_title
+              Comments for
+              = link_to @knotebook.title, @knotebook
+              (
+              = @comments.count
+              )
+            .clear
+            .comments_list= render :partial => @comments
+            .clear
+          .clear
+          .comments_title
+            = RPXNow.popup_code('Login or Sign Up', 'knotebooks', rpx_login_url, :language => 'en')
+            to comment!
+          .clear
+      - else
+        .login_to_comment
+          .comments_title
+            No comments yet.
+            = RPXNow.popup_code('Login or Sign Up', 'knotebooks', rpx_login_url, :language => 'en')
+            to start the discussion!
+      .clear
+    .clear

@@ -1,0 +1,22 @@
+.grid_13#new_knotebook
+  .new_knote_search_container
+    .new_knote_search_contents
+      .new_knote_search
+        - form_tag search_knotebook_knotes_path, :method => :get do
+          = label_tag :knote_search, "Search for knotes about"
+          = text_field_tag :knote_search, params[:knote_search], :class => 'search_knotes'
+          %button.knote_search{ :type => 'submit' } Search
+      .use_it
+        - unless @knotes.empty?
+          - form_tag add_knotebook_knote_path(@knotebook, @knote), :html => { :method => :put } do |f|
+            %button.knote_use{ :type => 'submit' } Use this knote
+      .clear
+    .clear
+    - unless @knotes.empty?
+      .new_knote_search_results
+        .pages= will_paginate(@knotes)
+        .clear
+        = render :partial => 'knote', :object => @knote
+    .cancel_search= link_to_button "Cancel", edit_knotebook_path(@knotebook)
+  .clear
+.clear

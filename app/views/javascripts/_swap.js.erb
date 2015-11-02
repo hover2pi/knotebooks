@@ -1,0 +1,58 @@
+$(function(){
+
+  
+  // $('a.easier_knote, a.harder_knote, a.restore').live("click", function(){
+  //   var $this = $(this);
+  //   var parent = $this.parents('div.knote');
+  //   $.getJSON(
+  //     $this.attr("href"),
+  //     {
+  //       media_type:   parent.find('select').val(),
+  //       knotebook_id: $this.parents('div#knotebook').attr('data-id'),
+  //       position:     parent.attr('data-position'),
+  //       restore:      parent.attr('data-restore')
+  //     },
+  //     function(data) {
+  //       $(data.views.knote).replaceAll(parent).hide().fadeIn();
+  //       $('#ref-' + parent.attr('data-id')).replaceWith($(data.views.reference));
+  //       $('#knote_reference_' + parent.attr('data-id')).replaceWith($(data.views.entry));
+  //     }
+  //   );
+  //   return false;
+  // });
+  
+  $("div.knote_expand a", "#knotebook").live("click", function(){
+    $(this).parents("div.knote").find("div.knote_details").slideToggle();
+    return false;
+  });
+  
+  $("span.hide a", "#knotebook").live("click", function(){
+    $(this).parents("div.knote").find("div.knote_content").slideToggle();
+    $(this).parents("div.knote").find("div.knote_details").slideToggle();
+    return false;
+  });
+
+  $('a.remove_knote').live("click", function(){
+    var parent = $(this).parents('div.knote');
+    var id = parent.attr('data-id');
+    $('#ref-' + id).remove();
+    $('#knote_reference_' + id).remove();
+    parent.remove();
+    
+    return false;
+  });
+  
+  $('a.comment_delete').live("click", function(){
+    $.get("/comments/" + $(this).parents("div.comment_row").attr("data-id") + "/destroy", function(){
+      var parent = $(this).parents('div.comment_row');
+      var id = parent.attr('data-id');  
+      parent.remove();
+    });
+    return false;
+  });
+  
+  // $("div.knote_expand a", "#knotes_list").live("click", function(){
+  //   $(this).parents("div.knote").find("div.knote_details").slideToggle();
+  //   return false;
+  // });
+});

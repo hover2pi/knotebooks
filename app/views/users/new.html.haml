@@ -1,0 +1,64 @@
+.grid_3= render :partial => 'pages/skyscraper_ad'
+
+.grid_13#signup_page
+  - if @user.rpx_identifier.blank?
+    .grid_7.alpha.rpxnow
+      %h4 Signup using another provider
+      %hr
+      = RPXNow.embed_code 'knotebooks', rpx_login_url
+    .grid_6.omega
+      .signup_tip 
+        = image_tag "/images/login_icons.gif"
+        %strong A note about sign up and login:
+        %p We highly recommend you signup and login to Knotebooks using your Facebook, Google, Wordpress or any other third-party provider login and passwords. This allows you to access Knotebooks from those platforms as well as ours and, best of all, it's one less username and password you have to remember!
+        %p You do still have the option to sign up the traditional way and create a separate username and password just for Knotebooks below.
+    .clear
+    %br
+  .grid_13.alpha.omega
+    %h4 Create Your Account
+    %hr
+    - form_for @user, :html => { :id => "signup_form" } do |f|
+      .grid_7.alpha.info_box_edit
+        .username_create
+          = f.label :login, 'Choose a Username:', :class => 'required'
+          .clear
+          = f.text_field :login, :size => 35
+          .small_text (Maximum 15 characters)
+      .grid_6.omega.info_box_edit
+        .realname_create
+          = f.label :name, 'Your Real Name:', :class => 'required'
+          .clear
+          = f.text_field :name, :size => 35
+          .small_text (This will appear on your profile only.)
+      .clear
+      - if @user.rpx_identifier.blank?
+        .grid_7.alpha.info_box_edit
+          .password_create
+            = f.label :password, 'Create a Password:', :class => 'required'
+            .clear
+            = f.password_field :password, :size => 35
+        .grid_6.omega.info_box_edit
+          .password_verify
+            = f.label :password_confirmation, 'That Password Again:', :class => 'required'
+            .clear
+            = f.password_field :password_confirmation, :size => 35
+        .clear
+      .grid_7.alpha.info_box_edit
+        .email_create
+          = f.label :email, 'Your Email Address:', :class => 'required'
+          .clear
+          = f.text_field :email, :size => 43
+          .small_text (For internal purposes only. We won't send you anything!)
+      .grid_6.omega.info_box_edit
+        .education_level
+          = f.label :difficulty, 'Approximate Physics Level:&nbsp;', :class => 'required'
+          = f.select :difficulty, [['High School', 0], ['Undergrad', 0.25], ['Graduate', 0.50], ['Ph.D.', 0.75]] 
+          .small_text (This helps us index and recommend content for you.)  
+      .clear
+      .grid_13.alpha.info_box_edit
+        .tou_scroll= render :partial => 'pages/tou'
+        .tou_check_box
+          = f.check_box :tou
+          = f.label :tou, 'I have read fully and agree to the Terms of Use.', :class => 'required'
+      .clear
+      %button{ :type => 'submit' } Create my account

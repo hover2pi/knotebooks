@@ -1,0 +1,53 @@
+- title("Search - #{params[:search]}") if params[:search]
+
+#browse
+  .featured
+    .banner Featured
+    .feature= link_to Knotebook.featured.last.title, Knotebook.featured.last
+    .kb_author
+      %p  
+        By
+        = link_to Knotebook.featured.last.user.login, Knotebook.featured.last.user
+        \|
+        %span In this knotebook:
+        = Knotebook.featured.last.concepts_list.join ', '
+    .kb_abstract
+      %p=h Knotebook.featured.last.abstract
+  .clear
+  .grid_3
+    #concept_sidebar
+      %h4 Popular Topics
+      = link_to_concepts(@concepts)
+    - unless @knotebooks.count < 5
+      = render :partial => 'pages/skyscraper_ad'
+  .grid_13
+    - if @knotebooks.empty?
+      %h4.none_found No knotebooks found! Please try a different search.
+    - else
+      .index_header
+        .index_title
+          %h4= generate_search_header(params, @search ? @search.total : @knotebooks.total_entries)
+        .index_options
+          = link_to "Basics", "#", :class => "basic", :onClick => "setActiveStyleSheet('basicKb'); return false;"
+          \|
+          = link_to "Details", "#", :class => "detail", :onClick => "setActiveStyleSheet('detailKb'); return false;"
+        .clear
+      .knotebooks_list
+        .list_header
+          .col1 Title
+          .col2 Abstract
+          .col3 Concepts
+          .clear
+        .clear
+        .list_body= render :partial => @knotebooks
+        .list_footcap
+          .pages= will_paginate @knotebooks
+          .clear
+  .clear
+
+- content_for :css do
+  = stylesheet_link_tag 'detailKb', :rel => "stylesheet", :title => "detailKb"
+  = stylesheet_link_tag 'basicKb', :rel => "alternate stylesheet", :title => "basicKb"
+
+- content_for :javascript do
+  = javascript_include_tag 'styleswitchKb'

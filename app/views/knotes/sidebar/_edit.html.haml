@@ -1,0 +1,4 @@
+- unless knote.new_record?
+  - div_for knote do
+    %span.handle= image_tag('/images/bg.gif')
+    = link_to knote.title, edit_knotebook_knote_path(@knotebook, knote)

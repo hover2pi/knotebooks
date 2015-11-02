@@ -1,0 +1,169 @@
+#faq_page
+  .grid_3= render :partial => 'pages/skyscraper_ad'
+  .grid_13
+    %h3 Frequently Asked Questions
+    %hr 
+    .faq_toc Table of Contents:
+    %ol
+      %li= link_to "What does it mean to Save to My Favorites?", "#1"
+      %li= link_to "Which IP license should I use when creating a knotebook?", "#2"
+      %li= link_to "Which reference style should I use when creating a knote?", "#3"
+      %li= link_to "Where on the Web can I grab good Creative Commons licensed content to contribute to Knotebooks?", "#4"
+      %li= link_to "What should I do if I come across content on the Knotebooks platform that is offensive, objectionable or blatantly incorrect?", "#5"
+      %li= link_to "May I post content that is not Creative Commons licensed?", "#6"
+      %li= link_to "What if I don't like the way someone has remixed or incorporated my work?", "#7"
+      %li= link_to "I'm having trouble logging in to my Knotebooks account!", "#8"
+      %li= link_to "Where did my knotebook go?", "#9"
+      %li= link_to "How do I pronounce the word 'knotebook?'", "#10"
+    %hr
+    %ol.faq_items
+      %li#1
+        What does it mean to Save to My Favorites?
+        %p This is a very special feature of Knotebooks that allows users to seamlessly reuse, remix and repurpose the Creative Commons licensed content posted by others. 
+        %p 
+          If you are viewing a knotebook that someone else has created and you want to keep a copy, click the
+          %strong Save to My Favorites
+          link in red under the knotebook's title. This will create a link to that knotebook under the My Favorites section of your profile. 
+        %p You can even swap out or remove knotes to customize the knotebook to exactly your level of understanding. Then edit the knotes or add others to fully personalize your copy of the knotebook and hit save!
+        %p.top_of_page= link_to "Top of Page", "#"
+      %hr
+      %li#2
+        Which IP license should I use when creating a knote?
+        %p Since content for knotes are pulled from many different sources on the Web, we require that each individual knote on the Knotebooks platform have its own Creative Commons license. Each knote must be licensed under one of the following, as described by CreativeCommons.org:
+        %p
+          %ol.lower_roman.license_plates
+            %li
+              = link_to image_tag('/images/CC0.png') + "CC0 or Public Domain", 'http://creativecommons.org/about/cc0', :target => '_blank'
+              %p CC0 enables scientists, educators, artists and other creators and owners of copyright-protected content to waive copyright interests in their works and thereby place them as completely as possible in the public domain, so that others may freely build upon, enhance and reuse the works for any purposes without restriction under copyright.
+            %li
+              = link_to image_tag('/images/CCBY.png') + "Attribution 3.0 United States", 'http://creativecommons.org/licenses/by/3.0/us/', :target => '_blank'
+              %p This license lets others distribute, remix, tweak, and build upon your work, even commercially, as long as they credit you for the original creation. This is the most accommodating of licenses offered, in terms of what others can do with your works licensed under Attribution.
+            %li
+              = link_to image_tag('/images/CCBYSA.png') + "Attribution-ShareAlike 3.0 United States", 'http://creativecommons.org/licenses/by-sa/3.0/us/', :target => '_blank'
+              %p This license lets others remix, tweak, and build upon your work even for commercial reasons, as long as they credit you and license their new creations under the identical terms. This license is often compared to open source software licenses. All new works based on yours will carry the same license, so any derivatives will also allow commercial use.
+            %li
+              = link_to image_tag('/images/CCBYNCSA.png') + "Attribution-Noncommercial-ShareAlike 3.0 United States", 'http://creativecommons.org/licenses/by-nc-sa/3.0/us/', :target => '_blank'
+              %p This license lets others remix, tweak, and build upon your work non-commercially, as long as they credit you and license their new creations under the identical terms. Others can download and redistribute your work, but they can also translate, make remixes, and produce new stories based on your work. All new work based on yours will carry the same license, so any derivatives will also be non-commercial in nature.
+        %p 
+          If you are the original author of the work, you get to set the Creative Commons license you would like to use based upon the rights you would like to maintain over the work. We highly recommend
+          = link_to image_tag('/images/CCBYSA.png'), "http://creativecommons.org/licenses/by-sa/3.0/us/", :target => '_blank'
+          as this is the most flexible license for remixing purposes while maintaining the academic rigor of proper citation.
+        %p If you are in any way redistributing, repurposing or remixing someone else's work — verbatim or paraphrased — you must honor the appropriate Creative Commons license used by the original author.    
+        %p 
+          For more information, please consult our 
+          = link_to "Terms of Use", pages_path(:tou)
+          page.
+        %p.top_of_page= link_to "Top of Page", "#"
+      %hr
+      %li#3
+        Which reference style should I use when creating a knote?
+        %p 
+          Since all Knotebooks content will be Creative Commons licensed, we use their citation criteria, which includes 1) a reproduction of the original work's copyright notices, 2) the author's name, screen name, user ID, etc., 3) the work's title, preferably in the form of a link, 4) the specific Creative Commons license the work is under, and, if it is a derivative work or adaptation, 5) identification that yours is a derivative work.
+        %p If creating content from scratch, we require only that your work has these 5 elements and we won't try to force any particular format upon our hard working contributors. That being said, we would deeply appreciate if you kept your references in the following MIT and AIP formats:
+        %p
+          %ol.lower_roman
+            %li
+              Open educational resources or open courseware:
+              %p
+                %textarea.copy2clipboard.code{ :onFocus => "this.select()" } [Author(s)], [Course Title], [Term]. ([Institution/Initiative Name]), [URL] (Accessed [Date]).
+            %li 
+              Textbooks, books or magazines:
+              %p
+                %textarea.copy2clipboard.code{ :onFocus => "this.select()" } [Author(s)], [Publication Name], "[Title of Chapter, Section or Article]" ([Publisher], [Publication Year]), pp. [Page Numbers].
+            %li 
+              Journal articles:
+              %p
+                %textarea.copy2clipboard.code{ :onFocus => "this.select()" } [Author(s)], [Journal Name] [Volume No.] ([Issue or Part]), [First Page of the Article] ([Publication Year])
+            %li 
+              Web content:
+              %p
+                %textarea.copy2clipboard.code{ :onFocus => "this.select()" } [Author(s)], [Site Name] "[Title of Work]" ([Institution/Company Name, if applicable]), [URL]
+            .clear
+        %p.top_of_page= link_to "Top of Page", "#"
+      %hr
+      %li#4
+        Where on the Web can I grab good Creative Commons licensed content to contribute to Knotebooks?
+        %p There are plenty of great places to find raw open educational resources that are free to use, remix and repurpose under a Creative Commons license. A few are:
+        %p
+          %ol.lower_roman
+            %li
+              = link_to "MIT Open Courseware", "http://ocw.mit.edu/OcwWeb/web/courses/courses/index.htm", :target => '_blank'
+              %p The Open Courseware Initiative at the Massachusetts Institute of Technology has over 1900 courses online in various media formats that are completely free to use.
+            %li
+              = link_to "OCW Finder", "http://ocwfinder.org/", :target => '_blank'
+              %p The folks over at the Center for Open Sustainable Learning at Utah State University created this nifty OCW search engine. 
+            %li
+              = link_to "Creative Commons Search", "http://search.creativecommons.org/", :target => '_blank'
+              %p For general content (not necessarily open courseware), Creative Commons has a great portal for search results from Google, Yahoo!, Flickr, blip.tv, Wikimedia Commons, and more!
+            %li
+              = link_to "Directory of Creative Commons licensed work", "http://wiki.creativecommons.org/Content_Curators", :target => '_blank'
+              %p This has a great collection of links to places with CC licensed audio, video, text and OCW and it's always being updated. 
+            %li
+              = link_to "Wikipedia", "http://en.wikipedia.org/wiki/Main_Page", :target => '_blank'
+              %p 
+                The vast majority of the content on Wikipedia is licensed 
+                = link_to image_tag('/images/CCBYSA.png'), "http://creativecommons.org/licenses/by-sa/3.0/us/", :target => '_blank'
+                and very well referenced.
+        %p Remember! It is always your responsibility to verify that the content you are putting up on Knotebooks is properly licensed and factual to the best of your knowledge. Do not assume so simply because you found it through one of these links.
+        %p.top_of_page= link_to "Top of Page", "#"
+      %hr
+      %li#5
+        What should I do if I come across content on the Knotebooks platform that is offensive, objectionable or blatantly incorrect?
+        %p 
+          = mail_to 'contact@knotebooks.com', 'Please let us know right away'
+          if you find any content that doesn't belong on Knotebooks. We will review the content and remove it when appropriate. Any user deliberately creating such content will also be removed from the Knotebooks community as such behavior violates our
+          = link_to "Terms of Use", pages_path(:tou)
+          agreement.
+        %p A simple flagging system is in the works where users will be able to notify us of problematic knotes with the click of a button.
+        %p.top_of_page= link_to "Top of Page", "#"
+      %hr
+      %li#6
+        May I post content that is not Creative Commons licensed?
+        %p 
+          If you find external content that is not explicitly licensed
+          = link_to image_tag('/images/CC0.png'), "http://creativecommons.org/about/cc0", :target => '_blank'
+          ,
+          = link_to image_tag('/images/CCBY.png'), "http://creativecommons.org/licenses/by/3.0/us/", :target => '_blank'
+          ,
+          = link_to image_tag('/images/CCBYSA.png'), "http://creativecommons.org/licenses/by-sa/3.0/us/", :target => '_blank'
+          or
+          = link_to image_tag('/images/CCBYNCSA.png'), "http://creativecommons.org/licenses/by-nc-sa/3.0/us/", :target => '_blank'
+          , we ask that you do not use it on Knotebooks. You may, however, use such content on Knotebooks if you get the express consent of the author to do so under one of these Creative Commons licenses.
+        %p.top_of_page= link_to "Top of Page", "#"
+      %hr
+      %li#7
+        What if I don't like the way someone has remixed or incorporated my work?
+        %p Knotebooks is an open academic community. Ideally, we would prefer you settle this with the person purportedly misusing your work by informing them of your objection and your desire to see the work modified or taken down. If the user refuses, under the Creative Commons license you can request removal of your name from the derivative or collected works.
+        %p.top_of_page= link_to "Top of Page", "#"
+      %hr
+      %li#8
+        I'm having trouble logging in to my Knotebooks account!
+        %p 
+          You may have noticed that Knotebooks doesn't have traditional username and password fields anywhere on the site. That's because Knotebooks uses a whiz-bang, neato feature that allows you to securely login and sign up using your Google, Facebook, Flickr, OpenID or any other username and password. 
+          = RPXNow.popup_code('Click here to Login or Sign Up!', 'knotebooks', rpx_login_url, :language => 'en')
+        %p You can even attach multiple third party providers to your account to login to Knotebooks with any of your usernames and passwords! Just click on the Edit link in your user bar and go to the section labeled Manage External Accounts.
+        %p
+          If you still can't seem to login or sign up, send us an 
+          = mail_to 'contact@knotebooks.com', 'email'
+          describing the issue and we'll get right on it!
+        %p.top_of_page= link_to "Top of Page", "#"
+      %hr
+      %li#9
+        Where did my knotebook go?
+        %p Many people signup to Knotebooks just to take a look around. And we think that it's great people are interested enough to look with their hands. However, sometimes the site gets flooded with 'test' knotebooks full of nonsense, which aren't so appealing to users that have come here to learn science. So we clean house from time to time and hide all the tests and gibberish, which is where your missing knotebook most likely went.
+        %p The other knotebooks we hide are the ones that have nothing to do with physics and math. We've seen Japanese language knotebooks, programming knotebooks, religion knotebooks, auto repair knotebooks, and many others. Again, we're jazzed that you're jazzed and it's very exciting to see other applications of the technology, but at present Knotebooks is a community for students and teachers of physics, math and the peripheral hard sciences.
+        %p 
+          If your knotebook disappeared and it
+          %em was
+          about physics and
+          %em not
+          a test knotebook, feel free to
+          = mail_to 'contact@knotebooks.com', 'send us an email'
+          and we'll check it out.
+        %p.top_of_page= link_to "Top of Page", "#"
+      %hr
+      %li#10
+        How do I pronounce the word 'knotebook?'
+        %p First, say the word 'knowledge.' Good. Now say the word 'know.' Excellent! Now say the words 'knot' and 'knife.' Do you see a pattern? The 'k' before an 'n' is always silent, which makes the word 'knotebook' pronounced exactly like 'notebook,' not 'ka-notebook' as our enemies would like you to believe.
+        %p.top_of_page= link_to "Top of Page", "#"
+  .clear

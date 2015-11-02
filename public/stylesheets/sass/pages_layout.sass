@@ -1,0 +1,534 @@
+@import constants.sass
+
+.index_header
+  .index_title
+    :width 80%
+    :float left
+    img
+      :margin-right = !h8
+  .index_options
+    :width 20%
+    :float right
+    :text-align right
+    :font-size = !h6
+    :position relative
+    :top 6px
+    
+#about_page, #tou_page, #news_page, #help, #faq_page, #home_page
+  :font-size = !h6
+  .top_of_page
+    :background = !highlight
+    :padding = 0 !h6
+    :border = !thin
+    :line-height = !line_height
+
+#news_page, #browse, #contributors, #tou_page, #faq_page, #requests_page
+  h4
+    :margin-bottom = !h7
+  .license_plates
+    img
+      :margin-right = !h7
+      :vertical-align middle
+  ul.instructions
+    :margin-bottom = !h6
+    li
+      :margin-bottom = !h8
+  
+#browse
+  h4.none_found
+    :text-align center
+    :margin-top 100px
+  #concept_sidebar
+    :border = !thin
+    :font-size = !h6
+    :background = !lightest
+    :margin-bottom = !h4
+    h4
+      :padding = !h7 0 !h8 0
+      :text-align center
+      :border-bottom = !thin
+      :background = !grey_light url('/images/list_header.png') repeat-x
+    ol.concept_index
+      :padding = 0 !h6
+      :margin-left = !h3
+      li.concept_li
+        :list-style-image none
+        :margin-left 0
+  .featured
+    :border = !thin
+      :color = !blue_light
+    :background = !blue_lightest
+    :padding = !h6
+    :margin = 0 !h7 !h3 !h7
+    .banner
+      :background url(/images/banner.png) no-repeat
+      :height 36px
+      :width 105px
+      :position relative
+      :left -30px
+      :top -2px
+      :padding = 10px 0 0 15px
+      :font-size = !h4
+      :font-weight bold
+      :color = #ffffff
+      :float left
+    .feature
+      :font-size = !h4
+      :position relative
+      :left -10px
+    .kb_author
+      :margin = !h8 0
+      :position relative
+      :left -10px
+    .kb_author, .kb_abstract
+      :font-size = !h6
+      a
+        :margin-right = !h9
+      span
+        :font-weight bold
+        :margin-left = !h9
+    .kb_abstract
+      :display block
+  
+#news_page
+  .blog_title
+    :width 100%
+    :display block
+    :border-bottom = !thin
+    :margin-bottom = !h4
+    //:background transparent url('/images/einstein.png') no-repeat top right
+    .blog_name
+      :font-size = 30px
+      :font-weight bold     
+      :color = !blue_dark 
+    .blog_tag
+      :margin = !h8 0
+      :font-size = !h4
+      :font-weight bold
+  .tab_fix
+    :background white
+    :width 450px
+    :float right
+    .ui-tabs-hide
+      :display none
+    #update_tabs
+      :margin-bottom = !h4
+      :border none
+      :padding 0
+      :font-size 0.9em
+      :width 429px
+      :float right
+      ul.ui-widget-header
+        :background white
+        :border none
+        :padding 0
+        li
+          :list-style-image none !important
+          :color = !black
+          :margin-right 0 !important
+          :border-top = !dark
+          :border-left = !dark
+          :border-right 0 !important
+          :width 142px !important
+          :height 31px !important
+          :overflow hidden
+          :text-overflow hidden
+          :white-space nowrap
+          a
+            :width 117px
+            :text-align center
+            :padding = 6px 10px
+          &:last-child
+            :border-right = !dark !important
+            :width 141px !important
+        li.ui-state-active
+          :background = !lightest !important
+        li.ui-state-default
+          :background url('/images/list_header.png')top
+      .ui-widget-content
+        :border = !dark
+        :background = !lightest
+        a
+          :color = !blue_dark
+          &:hover
+            :color = !black
+        .expansion
+          :float left
+          :padding = !h8 !h3 0 0
+          :width 50%
+          img
+            :width 100%    
+
+#blog
+  .post
+    :padding-bottom = !h2
+    h3
+      :margin-bottom = !h9
+      :line-height = !h4
+    .dateline
+      :color = #777777
+      :padding = 2px 0 !h6 22px   
+      :background transparent url('/images/cal.png') no-repeat
+    .post_content
+      :padding-top = !h6
+      :border-top = !thin
+      img
+        :margin = !h6 !h4 !h6 0
+        :border = 5px solid !lightest
+      >table
+        :margin-bottom = !h3
+        caption
+          :line-height = !h4
+        tr
+          &:first-child td
+            :background-color = !harmony_light
+            :font-weight bold
+            :border-color = !grey_mid
+        td
+          :border = !thin
+          :padding = !h7 !h7 !h8 !h7
+          :vertical-align middle
+          :line-height = 20px
+          :background = !lightest
+          img
+            :vertical-align middle
+        table
+          :margin-bottom 0 !important
+    
+
+#news_post
+  :border = !thin
+  :background = !lightest
+  :padding = !h6
+  label
+    :font-weight bold
+    :margin-bottom = !h6
+  #post_title
+    :width 100%    
+    
+#about_page
+  :vertical-align middle
+  .about_left_icons
+    :width 45%
+    :float left
+    :margin-top = !h6
+    .creative_commons
+      :float left
+      :padding-top = !h4
+    .famfamfam
+      :float right
+      :padding-top = !h3
+  .about_right_icons
+    :width 40%
+    :float right
+    :padding-right = !h6
+    .jquery
+      :float left
+    .rails
+      :float right
+      :padding-top = !h6
+  
+#faq_page
+  .faq_toc
+    :font-size = 1.2em
+    :font-weight bold
+    :margin = !h5 0 !h7 0
+  textarea.copy2clipboard
+    :width 98%
+    :height 34px
+    :padding = !h8
+    :border = !thin
+    :background-color = !highlight
+  ol.faq_items
+    :font-size = 1.2em
+    :font-weight bold
+    li
+      :margin = !h5 0 !h7 !h4
+      p
+        :font-weight normal
+        :font-size = !h6
+    li#reference_style
+      :padding-bottom 0
+    ol.lower_roman
+      :font-size = !h6
+      li
+        :list-style-type lower-roman
+        p
+          :font-size = !h5 
+  
+#help
+  input
+    :width 40em
+  button
+    :margin = 1em 0
+  label
+    :font-weight bold
+
+#profile
+  .profile_label
+    :font-weight bold
+    :margin-bottom = !h9
+    :font-size = !h5
+  .profile_gravatar
+    :margin = !h7 0
+    img
+      :border = !thin
+        :color = !black  
+  .profile_grabatar
+    :margin = !h7 0
+    img
+      :width 158px
+  #profile_info, #no_profile_info, #profile_image, .zero_knotebooks
+    :font-size = !h6
+    .edit_profile_link
+      :margin = !h9 0 !h5 0
+  #profile_info, .zero_knotebooks
+    :background-color = !highlight
+    :border none
+    div
+      :margin-bottom = !h6
+      &:last-child
+        :margin-bottom 0
+    #profile_bio, #profile_website, #profile_education, #profile_work  
+      span.profile_label
+        :margin-right = !h9
+  #no_profile_info
+    :line-height = !line_height
+    :background-color = !yellow_light
+    :border-color = !yellow_dark
+    hr
+      :background-color = !yellow_dark
+  .my_knotebooks, .no_knotebooks, .my_favorites
+    :margin-top = !h3
+    .knotebooks_list, .zero_knotebooks, .favorites_list
+      :margin-top = !h8
+    h4
+      :margin-bottom = !h8
+
+#profile_edit_page, #signup_page 
+  :font-size = !h6
+  table
+    :width 100%
+  .profile_data
+    :background-color = !harmony_light
+    &.reddy
+      :background-color = !red_light
+    :padding = !h6
+    :border-bottom = 10px solid #ffffff
+    label
+      :font-weight bold
+      :display block
+      :margin-bottom = !h9
+      &:after
+        :content ":"
+    &.lefty
+      :width 50%
+      :border-right = 10px solid #ffffff
+    &.righty
+      :width 50%
+      :border-left = 10px solid #ffffff
+    .tips
+      :font-size = !h6
+    .gravytar
+      :float left
+      img
+        :background-color white
+        :margin-right = !h6
+        :border = !thin
+          :color = !black
+    ul.rpx_ids
+      :margin = !h7 0
+      li.provider
+        :margin-bottom = 0
+  #user_bio
+    :height 150px
+  #user_work, #user_education
+    :height 50px
+  #user_website, #user_website_description, #user_work, #user_education, #user_bio, #user_logo, #user_org_name, #user_login, #user_email, #user_name
+    :width 100% 
+  .tou_scroll
+    :padding 1em
+    :border = !thin
+    :background white
+    :height 200px
+    :overflow auto
+    :font-weight normal
+    :margin-bottom = !h7
+
+#home_page
+  .container_12
+    .search
+      :background url('/images/123.png') no-repeat left
+    .remix
+      :background url('/images/123.png') no-repeat -300px
+    .share  
+      :background url('/images/123.png') no-repeat right
+    p.icon
+      :height 150px
+      :margin 0
+      :padding 0
+    p.blurb
+      :margin = !h8 0 !h7 0
+      :height = !line_height*2
+    h2.header
+      :margin-top = !h9
+    img 
+      :margin 0 auto
+  .main_view 
+    :float left
+    :position relative
+    :margin 0 auto
+  .window 
+    :height 260px 
+    :width 960px
+    :overflow hidden
+    :position relative
+  .paging 
+    :margin = !h2*0.8 auto !h8 auto
+    :width 100%
+    :text-align center
+    :display none
+  .paging a 
+    :padding = !h7 !h6 !h8 !h6
+    :margin = 0 !h7
+    :text-decoration none
+    :color = !grey_dark
+    :border = 1px solid #ffffff
+    &:hover
+      :color = !blue_dark
+  .paging 
+    a.active 
+      :font-weight bold
+      :background = !highlight
+      :border = !thin
+      :-moz-border-radius 8px
+      :-khtml-border-radius 8px
+      :-webkit-border-radius 8px
+      :color = !black !important
+  .image_reel 
+    :position absolute
+    :top 0 
+    :left 0
+    >div
+      :height 260px
+      :float left
+      :overflow hidden
+    .what
+      :text-align center
+      .search
+        :background url('/images/123.png') no-repeat left
+      .remix
+        :background url('/images/123.png') no-repeat -300px
+      .share  
+        :background url('/images/123.png') no-repeat right
+      p.icon
+        :height 150px
+        :margin 0
+        :padding 0
+      p.blurb
+        :margin = !h8 0 !h7 0
+        :height = !line_height*2
+      h2.header
+        :margin-top = !h9
+      img 
+        :margin 0 auto
+    .who
+      .students, .teachers, .organizations
+        :padding = !h5
+        :height 230px
+        :-moz-border-radius 8px
+        :-khtml-border-radius 8px
+        :-webkit-border-radius 8px
+      .students
+        :background = #eff5fc
+      .teachers
+        :background = #f0fcef
+      .organizations
+        :background = #fef1f2
+    .now
+      .sample h3  
+        :text-align center
+        :margin-top = !h4
+          
+#footer_home
+  :padding = !h5 0
+  :border-bottom = !thin
+  .footer_video
+    a
+      :background url('/images/screencast.png') no-repeat top
+      :border = !dark
+      :display block
+      :overflow hidden
+      :height 110px
+      :text-align center
+      :font-size = !h4
+      :line-height = 110px
+      :color #ffffff
+      &:hover
+        :background-position bottom
+        :border-color = #777777
+  .home_text
+    :height 110px
+    :display block
+    p.tag_line
+      :font-weight bold
+      :text-align center
+  .home_links
+    .footcap
+      .link
+        :text-align left
+        :border-bottom = !thin
+        :width 277px
+        a
+          :width 236px
+          :display block
+          :vertical-align middle
+          :padding = !h7 !h3
+          img
+            :padding 0 8px 2px 0
+            :vertical-align middle
+          &.top
+            :border-top = !thin
+          &:hover
+            :background = !grey_light
+            :border-right = !thin
+
+#requests_page
+  .request_form
+    :margin-top = !h4
+    :background-color = !yellow_light
+    :border-color = !yellow_mid
+    input.make_request
+      :font-size = !h5
+      :width 100%
+    .request_tip
+      :margin-bottom = !h6
+      :list-style-image url('/images/achtung.png')
+      :margin-left = !h3
+      :line-height = 1.4em
+      :font-size = !h6
+    .request_type
+      :margin = !h6 0
+  table.requests_list
+    td
+      &.vote
+        :width 7em
+      &.rank
+        :text-align right
+        :font-weight bold
+      &.type
+        :text-align center
+        img
+          :border none
+      &.request, &.rank, &.vote, &.type
+        :vertical-align middle
+
+#video_page
+  #slider
+    :position relative
+    :background url(images/loading.gif) no-repeat 50% 50%
+  #slider img
+    :position absolute
+    :top 0px
+    :left 0px
+    :display none

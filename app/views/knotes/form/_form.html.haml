@@ -1,0 +1,43 @@
+.grid_13#new_knotebook
+  - form_for [@knotebook, @knote] do |f|
+    = f.error_messages
+    #knotes_list
+      - div_for @knote, :class => "edit_knote_container" do
+        .edit_knote_title_container
+          .kn_title_label= f.label :title
+          .kn_title_input= f.text_field :title, :class => 'title_knote'
+        .clear
+        .edit_knote_type
+          .edit_knote_type_container
+            = f.label :knote_type, "This is a"
+            = f.select :knote_type, Knote.select_options
+            = f.select :content_type, Knote.content_select_options
+            = f.label :difficulty, "for"
+            = f.select :difficulty, Knote.difficulty_select_options(@knote.difficulty || current_user.difficulty)
+          .edit_knote_about
+            = f.label :concepts_list, "about"
+            = f.text_field :concepts_list, :class => 'about_knote'
+          .clear
+        .clear
+        .edit_knote_content
+          = render :partial => "knotes/form/#{@knote.knote_type.downcase}", :locals => { :f => f, :knote => @knote }
+          .clear
+        .edit_knote_source_container
+          = render :partial => "knotes/form/refs", :locals => { :f => f, :knote => @knote }
+        .edit_knote_buttons
+          .add 
+            %button{ :type => 'submit' }= @knote.new_record? ? "Save knote" : "Update knote"
+          .cancel= link_to_button "Cancel", edit_knotebook_path(@knotebook)
+          - unless @knote.new_record?
+            .delete= link_to_button image_tag('/images/trash.png'), knotebook_knote_path(@knotebook), { :method => :delete, :id => "knote_delete", :title => 'Delete this knote', :confirm => "Are you sure you want to delete this knote?" }
+          .clear
+        .clear
+
+- content_for :javascript do
+  :javascript
+    $(function() {
+      var availableTags = ["ActionScript", "AppleScript", "Asp", "BASIC", "C", "C++", "Clojure", "COBOL", "ColdFusion", "Erlang", "Fortran", "Groovy", "Haskell", "Java", "JavaScript", "Lisp", "Perl", "PHP", "Python", "Ruby", "Scala", "Scheme", ];
+      $("#knote_concepts_list").autocomplete({
+        source: availableTags
+      });
+    });

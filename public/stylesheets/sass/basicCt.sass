@@ -1,0 +1,61 @@
+@import constants.sass
+
+a.basic
+  :color = !grey_mid
+  &:hover
+    :cursor default
+
+.users_list
+  :text-align left
+  :font-size = !h6
+  .list_footcap
+    :background white
+    :color = !black
+    :padding = !h8
+    :text-align right
+    :border 0
+  .list_header
+    :display none
+  .list_body
+    .list_elements
+      :float left
+      .user_info
+        :line-height 19px
+        .user_gravatar
+          :position absolute
+          :z-index 2
+          img
+            :background-color white
+            :border = 1px solid !black
+        .user_deets 
+          :position relative
+          :z-index 1
+          :padding = !h7
+          .stats
+            span.kn_count, span.cm_count
+              :margin = !h9 0
+              img
+                :border none
+                :margin-right = 4px
+                :vertical-align middle
+        &:hover
+          .user_gravatar
+            :position absolute
+            img
+              :background-color white
+              :border = 1px solid !black
+              :opacity 0.25
+          .user_deets 
+            :z-index 3
+      >.grid_3
+        :width 141px
+        :height 141px
+        :margin = 0 !h8 !h7 !h8
+      >.grid_10
+        :display none
+
+.wee_grabatar
+  :margin-top = !h8
+  img 
+    :width 120px
+    :max-height 65px

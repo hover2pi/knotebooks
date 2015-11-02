@@ -1,0 +1,3 @@
+<%- flash.each do |k,v| %>
+    $.jGrowl('<%= escape_javascript(v) %>', { header: '<%=escape_javascript(k.to_s.capitalize) %>' });
+<% end %>

@@ -1,0 +1,29 @@
+!!! Strict
+%html
+  %head
+    %title
+      Knotebooks -
+      = yield(:title) || "Anyone can contribute. Everyone can learn."
+    = stylesheet_link_tag 'reset', '960', 'jquery-ui-1.7.2.custom', 'jquery.jgrowl', 'constants', 'application_layout', 'content_show', 'content_edit', 'pages_layout', 'comments'
+    = stylesheet_link_tag 'print', :media => 'print'
+    = javascript_include_tag 'swfobject', 'jquery-1.4.2.min.js', 'jquery-ui-1.8.4.custom.min.js', 'jquery.tools.min.js', 'jquery.easing.1.3.js', 'jquery.jgrowl_minimized.js'
+    = yield(:css)
+    = render :partial => 'shared/google_analytics'
+  %body
+    #ajax-status
+      %span#ajax-message Loading ...
+    #wrapper
+      = render :partial => 'users/control_bar'
+      = render :partial => 'layouts/navigation'
+      #main
+        .container_16= yield
+      = yield :comments
+      = render :partial => 'layouts/footer'
+    = javascript_include_tag 'application'
+    = yield(:javascript)
+    :javascript
+      $(function(){
+        #{render :partial => "shared/growl.js.erb"}
+        #{yield(:jquery)}
+      });
+    = render :partial => 'shared/get_satisfaction'

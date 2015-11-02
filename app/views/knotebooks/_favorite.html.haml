@@ -1,0 +1,19 @@
+.list_elements{ :class => cycle('odd', 'even') }
+  .grid_3.alpha
+    .kb_title
+      %p= link_to favorite.title, kb_url(favorite)
+      .clear
+      %span.kb_author
+        - unless favorite.user == current_user
+          By
+          = link_to favorite.user.login, favorite.user
+      .clear
+    .clear
+  .grid_6
+    .kb_abstract
+      %p=h favorite.abstract
+  .grid_4.omega
+    .kb_concept_list
+      %p= favorite.concepts_list.join ', '
+  .clear
+.clear

@@ -1,0 +1,172 @@
+$(function() {  
+  var concept = $('#concept_name');
+  var knotes = [];  
+  
+  $('#knote_add').click(function(){
+    $.getJSON(
+      "<%= new_knote_url(:format => :json) %>",
+      {},
+      function(data){
+        $(data.views.entry).appendTo('#concepts_list');
+        $(data.views.knote).appendTo('#knotes_list')
+          .hide()
+          .animate({ opacity: 100 }, { queue: false, duration: 500 })
+          .slideDown();
+        $('div.edit_knote_container textarea.RTE', '#knotes_list').tinymce({
+          script_url: '/javascripts/tiny_mce/tiny_mce.js',
+          // editor_selector : 'mceEditor',
+          // mode : 'specific_textareas',
+          plugins : "media,spellchecker,table,save,fullscreen,iespell,paste,contextmenu,latex",
+          // spellchecker_rpc_url : '/lessons/spellchecker',
+          theme : 'advanced',
+          theme_advanced_buttons1 : 'undo,|,bold,italic,underline,|,pasteword,bullist,numlist,image,table,|,link,unlink,|,latex,|,fullscreen',
+          theme_advanced_buttons2 : '',
+          theme_advanced_buttons3 : '',
+          theme_advanced_resize_horizontal : false,
+          theme_advanced_resizing : true,
+          theme_advanced_statusbar_location : 'bottom',
+          theme_advanced_toolbar_align : 'left',
+          theme_advanced_toolbar_location : 'top',
+          valid_elements : '@[id|class|style|title|dir<ltr?rtl|lang|xml::lang],a[rel|rev|charset|hreflang|accesskey|type|name|href|target|title|class|onfocus|onblur],strong/b,em/i,strike,u,#p[align],-ol[type|compact],-ul[type|compact],-li,br,img[longdesc|usemap|src|border|alt=|title|hspace|vspace|width|height|align],-sub,-sup,-blockquote,-table[border=0|cellspacing|cellpadding|width|frame|rules|height|align|summary|bgcolor|background|bordercolor],-tr[rowspan|width|height|align|valign|bgcolor|background|bordercolor],tbody,thead,tfoot,#td[colspan|rowspan|width|height|align|valign|bgcolor|background|bordercolor|scope],#th[colspan|rowspan|width|height|align|valign|scope],caption,-div,-span,-code,-pre,address,-h1,-h2,-h3,-h4,-h5,-h6,hr[size|noshade],dd,dl,dt,cite,abbr,acronym,del[datetime|cite],ins[datetime|cite],map[name],area[shape|coords|href|alt|target],bdo,col[align|char|charoff|span|valign|width],colgroup[align|char|charoff|span|valign|width],dfn,kbd,q[cite],samp,small,tt,var,big'
+        });
+      }
+    );
+    return false;
+  });
+  
+  $('#knote_search').click(function(){
+    $.getJSON(
+      "<%= search_knotes_url(:format => :json) %>",
+      {},
+      function(data){
+        $(data.views.search).appendTo('#knotes_list')
+          .hide()
+          .animate({ opacity: 100 }, { queue: false, duration: 500 })
+          .slideDown();
+      }
+    );
+    return false;
+  });
+  
+  $('#knotes_list').bind('change', function(e){
+    var target = $(e.target);
+    
+    if(target.attr('id').indexOf("media_type") > 1) {
+      var parent = target.parents('div.edit_knote_container');
+
+      $.getJSON(
+        "<%= new_knote_url(:format => :json) %>",
+        {
+          "knote[title]":         parent.find('input[id$=title]').val(),
+          "knote[media_type]":    target.val(),
+          "knote[content_type]":  parent.find('select[id$=content_type]').val(),
+          "knote[difficulty]":    parent.find('select[id$=difficulty]').val(),
+          "knote[concepts_list]": parent.find('input[id$=concepts_list]').val(),
+          "knote[source]":        parent.find('textarea[id$=source]').val()
+        }, // Put sub-form in here
+        function(data){
+          $('#concept_for_knote_' + parent.attr('data-id'), '#concepts_list').replaceWith($(data.views.entry));
+          parent.fadeOut(function(){
+            $(this).replaceWith($(data.views.knote)).hide().fadeIn();
+          });
+        }
+      );
+    }
+  });
+    
+  $('#knotes_list').bind('click', function(e){
+    var parent, target = $(e.target);
+    
+    if(target.hasClass('knote_delete')) {
+      if(target.parent().hasClass('new_knote_search')) {
+        target.parents('div.new_knote_search_container')
+          .animate({ opacity: 0 }, { queue: false, duration: 500 })
+          .slideUp(function(){ $(this).remove(); });
+      } else {
+        if(confirm('Remove this knote?  All data will be lost.')){
+          parent = target.parents('div.edit_knote_container');
+          $('input[value=' + parent.attr('data-id') + ']').remove();
+          $('#concept_for_knote_' + parent.attr('data-id'), '#concepts_list')
+            .add(parent)
+            .animate({ opacity: 0 }, { queue: false, duration: 500 })
+            .slideUp(function(parent){ $(this).remove(); });
+          // replaceWith('<input type="hidden" value="1" name="knotebook_knotes_delete_' + parent.attr('data-id') + '" />')
+        }
+      }
+      return false;
+    } else if(target.hasClass('knote_search')) {
+      parent = target.parents('div.new_knote_search_container');
+      
+      $.getJSON(
+        "/concept/" + parent.find('input[id$=concepts_list]').val() + "/knotes/1.json",
+        {
+          // "media_type":   parent.find('select[id$=media_type]').val(),
+          // "content_type": parent.find('select[id$=content_type]').val(),
+          // "difficulty":   parent.find('select[id$=difficulty]').val(),
+        }, // Put sub-form in here
+        function(data){
+          var result = parent.find('div.new_knote_search_results');
+          result.html(data.views.pagination + data.views.knote);
+          knotes.push(data.knote);
+          // parent.after(data.views.pagination);
+          // parent.fadeOut(function(){
+          //   $(this).replaceWith(result).hide().fadeIn();
+          // });
+        }
+      );
+      
+      parent.find('button').removeAttr('disabled');
+
+      return false;
+    }
+  });
+  
+  $('div.pagination a', '#knotes_list').live('click', function(){
+    parent = $(this).parents('div.new_knote_search_container');
+    
+    $.getJSON(
+      $(this).attr('href'),
+      {},
+      function(data){
+        parent.find('div.new_knote_search_results')
+              .html(data.views.pagination + data.views.knote);
+      }
+    );      
+    return false;
+  });
+  
+  $('button.knote_use', '#knotes_list').live('click', function(){
+    var parent = $(this).parents('div.new_knote_search_container'),
+        id = parent.find('div.knote').attr('data-id');
+
+    $.getJSON(
+      '/knotes/' + id + '/edit.json',
+      {},
+      function(data){
+        $(data.views.entry).appendTo('#concepts_list');
+        parent.replaceWith($(data.views.knote))
+          .hide()
+          .animate({ opacity: 100 }, { queue: false, duration: 500 })
+          .slideDown();
+        $('div.edit_knote_container textarea.RTE', '#knotes_list').tinymce({
+          script_url: '/javascripts/tiny_mce/tiny_mce.js',
+          // editor_selector : 'mceEditor',
+          // mode : 'specific_textareas',
+          plugins : "media,spellchecker,table,save,fullscreen,iespell,paste,contextmenu,latex",
+          // spellchecker_rpc_url : '/lessons/spellchecker',
+          theme : 'advanced',
+          theme_advanced_buttons1 : 'undo,|,bold,italic,underline,|,pasteword,bullist,numlist,image,table,|,link,unlink,|,latex,|,fullscreen',
+          theme_advanced_buttons2 : '',
+          theme_advanced_buttons3 : '',
+          theme_advanced_resize_horizontal : false,
+          theme_advanced_resizing : true,
+          theme_advanced_statusbar_location : 'bottom',
+          theme_advanced_toolbar_align : 'left',
+          theme_advanced_toolbar_location : 'top',
+          valid_elements : '@[id|class|style|title|dir<ltr?rtl|lang|xml::lang],a[rel|rev|charset|hreflang|accesskey|type|name|href|target|title|class|onfocus|onblur],strong/b,em/i,strike,u,#p[align],-ol[type|compact],-ul[type|compact],-li,br,img[longdesc|usemap|src|border|alt=|title|hspace|vspace|width|height|align],-sub,-sup,-blockquote,-table[border=0|cellspacing|cellpadding|width|frame|rules|height|align|summary|bgcolor|background|bordercolor],-tr[rowspan|width|height|align|valign|bgcolor|background|bordercolor],tbody,thead,tfoot,#td[colspan|rowspan|width|height|align|valign|bgcolor|background|bordercolor|scope],#th[colspan|rowspan|width|height|align|valign|scope],caption,-div,-span,-code,-pre,address,-h1,-h2,-h3,-h4,-h5,-h6,hr[size|noshade],dd,dl,dt,cite,abbr,acronym,del[datetime|cite],ins[datetime|cite],map[name],area[shape|coords|href|alt|target],bdo,col[align|char|charoff|span|valign|width],colgroup[align|char|charoff|span|valign|width],dfn,kbd,q[cite],samp,small,tt,var,big'
+        });
+      }
+    );
+    return false;
+  });
+});

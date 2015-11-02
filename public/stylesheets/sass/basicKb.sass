@@ -1,0 +1,87 @@
+@import constants.sass
+
+#browse
+  .skyscraper
+    :display none !important
+
+a.basic
+  :color = !grey_mid
+  &:hover
+    :cursor default
+
+.knotebooks_list, .favorites_list
+  :text-align left
+  :font-size = !h6
+  p
+    :max-height = !h4*3
+    :margin 0
+    :line-height = !h4
+    :overflow hidden    
+  ul
+    li
+      :list-style-image none
+      :margin-left 0
+      :padding-bottom = 0
+  .list_footcap
+    :background = !highlight url('/images/list_header.png') repeat-x bottom
+    :color = !black
+    :padding = !h8
+    :text-align right
+    :-moz-border-radius 0 0 7px 7px
+    :-webkit-border-radius 0 0 7px 7px
+    :border-radius 0 0 7px 7px
+    :border 
+      :bottom = !thin
+      :left = !thin
+      :right = !thin
+  .list_header
+    :background = !highlight url('/images/list_header.png') repeat-x top
+    :color = !black
+    :padding = !h8 0 !h9 0
+    :-moz-border-radius 7px 7px 0 0 
+    :-webkit-border-radius 7px 7px 0 0
+    :border-radius 7px 7px 0 0
+    :border 
+      :top = !thin
+      :left = !thin
+      :right = !thin
+    .col1, .col2
+      :font-weight bold
+      :float left
+      :padding-left = !h8
+    .col1
+      :width 100%
+      //&:after
+      //  :content " and Concepts"
+    .col2, .col3
+      :display none
+  .list_body
+    :border-bottom = !dark
+    .list_elements    
+      :border-top = !dark
+      &.even
+        :background-color = !lightest
+      &.odd
+        :background-color white
+      >.grid_3.alpha
+        :width 100%
+        :display block
+        :margin 0
+      >.grid_3.omega
+        :width 100%
+        :display block
+        :margin 0
+      .kb_title
+        :padding = !h8
+        p
+          :max-height = !h4
+          :overflow hidden
+          :font-size = !h4
+        span.kb_author
+          :display none
+      .kb_abstract
+        :display none
+      .kb_concept_list
+        :display none
+      &:hover
+        :background = !harmony_light

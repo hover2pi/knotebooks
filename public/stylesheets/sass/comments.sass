@@ -1,0 +1,119 @@
+@import constants.sass
+
+#comments
+  :margin-bottom = !h6
+  :padding = !h5 0
+  :width 100%
+  :border
+    :top = !thin
+    :bottom = !thin
+  :background-color = !highlight
+  .comments_title
+    :font-size = !h4
+    :font-weight bold
+    :line-height = !h4
+  .comments_container
+    :margin-bottom = !h4
+    .comments_list
+      :margin-top = !h8
+      .comment_row
+        :border = !thin
+        :font-size 0.9em
+        :margin-bottom = !h6
+        :position-top -1px
+        &.odd
+          :background-color white
+        &.even
+          :background-color = #fafafa
+        &:hover
+          :background-color = !harmony_light
+          :border-color = !grey_mid
+        .comment_details
+          :width 20%
+          :float left
+          :padding = !h7 0 !h6 !h6
+          .comment_grabatar
+            img
+              :float left
+            .comment_gravatar
+              img
+                :border = 1px solid !black
+                :background #ffffff
+            .wee_grabatar
+              img
+                :max-width 140px
+                :max-height 50px
+                :background transparent
+                :border 0             
+          .comment_author
+            :font-weight bold
+            :font-size = !h6
+            :float left
+            :color white
+            :padding = !h9 !h8
+            :margin-left = !h8
+            :border = 1px solid !black
+            :background-color = !blue_dark
+          .comment_name
+            :font-size = !h4
+            :margin = !h8 0 !h9 0
+            :overflow hidden
+          .comment_date
+            :font-size = !h6
+          .comment_flag
+            :float right
+            img
+              :border none
+        .comment_text
+          :padding = !h7 0 !h7 !h7
+          :width 73%
+          :float left
+          >table
+            :margin-bottom = !h3
+            caption
+              :line-height = !h4
+            tr
+              &:first-child td
+                :background-color = !harmony_light
+                :font-weight bold
+                :border-color = !grey_mid
+            td
+              :border = !thin
+              :padding = !h7 !h7 !h8 !h7
+              :vertical-align middle
+              :line-height = 20px
+              :background white
+              img
+                :vertical-align middle
+            table
+              :margin-bottom 0 !important
+          img
+            :border none
+        .comment_delete
+          :width 2%
+          :float right
+          :padding = !h7 !h7 !h7 0
+          img
+            :border none
+            :float right
+  .comments_submit_form
+    .commenter
+      :margin = !h6 0 !h8 0
+    textarea.comment_text
+      :width 100%
+      :height 200px
+    .mce_fullscreen
+      &:after
+        :content 'Fullscreen Editor' 
+        :line-height = 1.7em
+        :padding-left = 1.8em
+        :font-size = !h6
+        :color = !black
+    .mce_latex
+      :width 42px
+      img
+        :width 38px
+        :height 16px
+        :padding 2px
+  .login_to_comment
+    :text-align center

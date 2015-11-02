@@ -1,0 +1,123 @@
+#home_page
+  .container_12    
+    .main_view
+      .window
+        .image_reel
+          .what{:href => "#"}
+            .grid_4.search
+              %h2.header Search
+              %p Browse for lessons composed of the best physics and math multimedia on the Web.
+              %p.icon= image_tag('/images/search.png', :width => 215)
+            .grid_4.remix
+              %h2.header Remix
+              %p Keep the parts you want, swap the rest out for better explanations, easier material or even video.
+              %p.icon= image_tag('/images/remix.png', :width => 275)
+            .grid_4.share
+              %h2.header Share
+              %p Save your custom-built library, then collaborate and share with classmates and colleagues.
+              %p.icon= image_tag('/images/share.png', :width => 150)
+          .who{:href => "#"}
+            .grid_4
+              .teachers
+                %h3 Teachers
+                %hr
+                %ul 
+                  %li Create and manage your own library of dynamic course content
+                  %li Expand your curricula using the best educational multimedia on the Web
+                  %li Direct your students to the highest quality resources and best explanations
+              .clear
+            .grid_4
+              .students
+                %h3 Students
+                %hr
+                %ul 
+                  %li Customize anyone's knotebook to exactly your difficulty level and preferred format 
+                  %li Create class notes or study guides then save and share them with classmates
+                  %li Collaborate with other students or ask a teacher about the material
+              .clear
+            .grid_4
+              .organizations
+                %h3 Organizations
+                %hr
+                %ul 
+                  %li Brand all of your content with your school or organization's logo
+                  %li Manage the organization's Profile Page to showcase content and build your presence
+                  %li Have multiple teachers create and administer your school's knotebooks
+                .clear
+          .now{:href => "#"} 
+            .grid_12
+              .sample
+                %h3 Why are you still on the homepage?
+                .giant_button.inverse_links= link_to "Try a sample knotebook", '/knotebooks/125'
+                .giant_button.inverse_links
+                  - if logged_in?
+                    = link_to "Create a new knotebook", new_knotebook_path
+                  - else
+                    = RPXNow.popup_code('Sign Up for your free account!', 'knotebooks', rpx_login_url, :language => 'en')
+      .paging
+        %a{ :href => "#", :rel => "1"} How it works.
+        %a{ :href => "#", :rel => "2"} Where you come in!
+        %a{ :href => "#", :rel => "3"} Now what?
+    .clear
+
+    /   .grid_4.search
+    /     %h2.header Search
+    /     %p Browse for lessons composed of the best physics and math multimedia on the Web.
+    /     %p.icon= image_tag('/images/search.png', :width => 215)
+    /   .grid_4.remix
+    /     %h2.header Remix
+    /     %p Keep the parts you want and swap the rest out for better explanations, easier material or even video.
+    /     %p.icon= image_tag('/images/remix.png', :width => 275)
+    /   .grid_4.share
+    /     %h2.header Share
+    /     %p And share your custom-built library at exactly your level of understanding.
+    /     %p.icon= image_tag('/images/share.png', :width => 150)
+    /   .clear
+    / .clear
+    
+#knotebooks_101{ :style => "display: none; z-index: 10000" }
+  %object{:height => "480", :width => "810"}
+    %param{:name => "movie", :value => "http://www.youtube.com/v/AsbLPQhtZGY&hl=en&fs=1&&autoplay=1"}
+    %param{:name => "allowFullScreen", :value => "true"}
+    %param{:name => "allowscriptaccess", :value => "always"}
+    %embed{:allowfullscreen => "true", :allowscriptaccess => "always", :height => "480", :src => "http://www.youtube.com/v/AsbLPQhtZGY&hl=en&fs=1&&autoplay=1", :type => "application/x-shockwave-flash", :width => "810"}  
+
+#intro_video{ :style => "display: none; z-index: 10000" }
+  %object{:height => "480", :width => "810"}
+    %param{:name => "movie", :value => "http://www.youtube.com/v/hhQf1j9xBzA&hl=en&fs=1&&autoplay=1"}
+    %param{:name => "allowFullScreen", :value => "true"}
+    %param{:name => "allowscriptaccess", :value => "always"}
+    %embed{:allowfullscreen => "true", :allowscriptaccess => "always", :height => "480", :src => "http://www.youtube.com/v/hhQf1j9xBzA&hl=en&fs=1&&autoplay=1", :type => "application/x-shockwave-flash", :width => "810"}
+
+
+- content_for :footer do
+  #footer_home.inverse_links
+    .grid_5.home_links
+      .footcap
+        .link= link_to image_tag('/images/tv_icon.png') + "Knotebooks in 60 seconds", "#knotebooks_101", :rel => 'facebox', :class => 'top'
+        .link= link_to image_tag('/images/star.png') + "Try a sample knotebook", '/knotebooks/125'
+        .link
+          - if logged_in?
+            = link_to image_tag('/images/kb_new.png') + "Create a new knotebook", new_knotebook_path
+          - else
+            = RPXNow.popup_code(image_tag('/images/login_icons.gif') + 'Sign Up for your free account!', 'knotebooks', rpx_login_url, :language => 'en')
+    .grid_7.home_text
+      %p Knotebooks is more than just a community to share math and physics knowledge. It's intuitive technology and a disruptive idea that makes learning science simpler. 
+      %p.tag_line Anyone can contribute. Everyone can learn.
+    .grid_4
+      .footer_video= link_to "Take the Tour!", "#intro_video", :rel => 'facebox'
+    .clear
+
+
+- content_for :css do
+  = stylesheet_link_tag '/facebox/facebox.css'
+
+- content_for :javascript do
+  = javascript_include_tag '/facebox/facebox.js', 'home_slider.js'
+  :javascript    
+    $(function(){
+      $("a[rel*=facebox]").facebox();
+      $.facebox.settings.opacity = 0.8;
+    });
+    
+    

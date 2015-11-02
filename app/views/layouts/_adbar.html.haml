@@ -1,0 +1,73 @@
+#adbar
+  .container_16
+    - if logged_in?
+      .grid_3#user_nav_box
+        #gravatar= link_to gravatar_for(current_user, :size => 88), current_user
+        #nav_box_container
+          .nav_box
+            = link_to image_tag("profile.png") + "Home", root_path
+            .clear
+          .nav_box
+            = link_to image_tag("profile_icon.png") + 'Profile', current_user
+            .clear
+          .nav_box
+            = link_to image_tag("edit.png") + 'Edit', edit_user_path(:current)
+            .clear
+          .nav_box
+            = link_to image_tag("lesson_new.png") + 'Create', new_knotebook_path
+            .clear
+          .clear
+        .clear
+    - else
+      .grid_3
+        #giant_button.inverse_links
+          = RPXNow.popup_code(image_tag('/images/138x42.gif') + 'Login or Sign Up', 'knotebooks', rpx_login_url, :language => 'en')
+    .grid_13    
+      #nav
+        .grid_3.alpha#logo= link_to "Knotebooks", root_path
+        .grid_10.omega
+          .nav_bar_buttons
+            = link_to 'Browse', knotebooks_path
+            = link_to 'Video'
+            = link_to 'Contributors', users_path
+            = link_to 'Site News', pages_path('news')
+            = link_to 'About', pages_path('about')
+      .clear
+      #search_bar
+        .search_form
+          - form_tag search_knotebooks_path, :method => :get do
+            = text_field_tag :search, params[:search]
+    
+#adbar
+  .container_16
+    - if logged_in?
+      .grid_3#user_nav_box
+        #gravatar= link_to gravatar_for(current_user, :size => 88), current_user
+        #nav_box_container.inverse_links
+          .nav_box
+            = link_to image_tag("profile.png") + "Home", root_path
+            %br
+          .nav_box
+            = link_to image_tag("profile_icon.png") + 'Profile', current_user
+            %br
+          .nav_box
+            = link_to image_tag("edit.png") + 'Edit', edit_user_path(:current)
+            %br
+          .nav_box
+            = link_to image_tag("kb_new.png") + 'Create', new_knotebook_path
+        %br{:style => "clear: both"}
+    - else
+      .grid_3
+        #giant_button.inverse_links
+          = RPXNow.popup_code(image_tag('/images/138x42.gif') + 'Login or Sign Up', 'knotebooks', rpx_login_url, :language => 'en')
+    .grid_13
+      /#leaderboard_ad= link_to image_tag('/images/leaderboard.png'), 'http://seedmagazine.com', :target => '_blank'
+      #leaderboard_ad
+        /* Google Ads */    
+        %script{ :type => "text/javascript" }
+          google_ad_client = "pub-4003421104235806";
+          google_ad_slot = "8966093362";
+          google_ad_width = 728;
+          google_ad_height = 90;
+        %script{ :type => "text/javascript", :src => "http://pagead2.googlesyndication.com/pagead/show_ads.js" }
+    .clear

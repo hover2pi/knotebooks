@@ -1,0 +1,25 @@
+.grid_3= render :partial => 'pages/skyscraper_ad'
+.grid_13#help
+  %h3 Trouble logging in? 
+  %hr
+  %p 
+    %strong 
+      If you signed up to Knotebooks using 
+      = link_to 'Facebook', 'http://www.facebook.com/reset.php', :target => '_blank'
+      ,
+      = link_to 'Google', 'http://www.google.com/support/accounts/bin/answer.py?answer=48598&hl=en&ctx=ch_Login&fpUrl=https%3A%2F%2Fwww.google.com%2Faccounts%2FForgotPasswd%3FfpOnly%3D1%26continue%3Dhttp%253A%252F%252Fwww.google.com%252F%26hl%3Den', :target => '_blank'
+      ,
+      = link_to 'Twitter', 'http://twitter.com/account/resend_password', :target => '_blank'
+      or any other third-party provider, unfortunately you have to ask them to reset your password!
+  %p If you signed up with a unique Knotebooks username and password, enter the full email address you used to create your Knotebooks account and we'll send you a link to reset your password.
+  %p
+    - form_for :user do |f|
+      = f.error_messages
+      = f.label :email, 'Email address:'
+      .clear
+      = f.text_field :email
+      %button{ :type => 'submit' } Submit
+  %p
+    If the problem persists, send us an 
+    = mail_to 'contact@knotebooks.com', 'email'
+    describing the issue and we'll get right on it. Thanks for your patience!

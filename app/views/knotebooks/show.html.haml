@@ -1,0 +1,57 @@
+- title "#{@knotebook.title}"
+
+#print_title= @knotebook.title
+= render :partial => 'knotebooks/sidebar/show'
+
+.grid_13#knotebook{ "data-id" => @knotebook.id }
+  = render :partial => 'knotebooks/title'
+  = render :partial => @knotebook.knotes, :locals => { :knotebook => @knotebook }
+  .clear
+  
+  .knotebook_end
+    .top_of_page= link_to 'Top of Page', '#'
+    - if logged_in?
+      .end_options
+        - if @knotebook.user == current_user
+          - if @knotebook.is_a? Favorite
+            = link_to 'Delete this favorite', @knotebook, :method => :delete, :confirm => "Are you sure you want to delete this favorite? This action cannot be undone.", :class => "delete_me"
+          - else
+            = link_to 'Edit', edit_knotebook_path(@knotebook), :class => "edit_me"
+            \|
+            = link_to 'Delete this knotebook', kb_url(@knotebook), :method => :delete, :confirm => "Are you sure you want to delete this knotebook? This action cannot be undone.", :class => "delete_me"
+    - else
+      .end_options= RPXNow.popup_code(image_tag('/images/star.png') + "Login to Save to My Favorites", 'knotebooks', rpx_login_url, :language => 'en')
+      .clear
+    .clear
+  
+  #references
+    .reference_container
+      .ref_label References:
+      %hr
+      %ol
+        = render :partial => 'knotes/reference', :collection => @knotebook.knotes, :as => :knote
+      - if @knotebook.class == Favorite
+        %hr
+        .clear
+        .original  
+          This knotebook is a remixed version of
+          = link_to "#{@knotebook.original.title}", @knotebook.original
+          by 
+          = link_to "#{@knotebook.original.user.login}", @knotebook.original.user
+          \.      
+  .clear
+.clear
+
+- content_for :comments do
+  = render :partial => 'comments/kb_comments'
+
+- content_for :javascript do
+  = render :partial => 'shared/tinymce'
+  = javascript_include_tag 'swap', 'http://static.addtoany.com/menu/page.js'
+  :javascript
+    a2a_config = {
+      linkname: 'document.title',
+      linkurl: 'location.href',
+      num_services: '10',
+      show_title: true
+    };

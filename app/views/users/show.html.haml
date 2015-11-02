@@ -1,0 +1,134 @@
+#profile
+  .grid_3= render :partial => 'pages/skyscraper_ad'
+  .grid_13
+    .grid_3.alpha
+      %h4=h @user.login
+      #profile_image      
+        - if @user == current_user
+          .edit_profile_link= link_to 'Edit My Profile', edit_user_path(:current)
+        - else
+          .profile_gravatar= gravatar_for(@user, :size => 158)
+        .profile_label A.k.a:
+        = @user.name
+        - if @user.organization? && !@user.logo.blank?
+          .profile_grabatar
+            .profile_label Organization:
+            = link_to image_tag(@user.logo), @user, :title => @user.org_name
+        .clear
+    .grid_10.omega
+      - unless @user.bio.blank? && @user.website.blank? && @user.work.blank? && @user.education.blank?
+        #profile_info.round_corners
+          - unless @user.bio.blank?
+            #profile_bio
+              %p
+                %span.profile_label About me:
+                = @user.bio
+          - unless @user.website.blank?
+            #profile_website
+              %p
+                %span.profile_label Website:
+                = link_to @user.website_description.blank? ? @user.website : @user.website_description, @user.website, :target => '_blank'
+          - unless @user.education.blank?
+            #profile_education
+              %p
+                %span.profile_label Education:
+                = @user.education
+          - unless @user.work.blank?
+            #profile_work
+              %p
+                %span.profile_label Work:
+                = @user.work
+      - else
+        #no_profile_info.round_corners
+          - if @user == current_user
+            %h4 Welcome to Knotebooks Beta!
+            %hr
+            Take a quick second to 
+            = link_to 'complete your profile', edit_user_path(@user)
+            and be sure to choose a gravatar image. You can get one for free at 
+            = link_to 'gravatar.com', 'http://gravatar.com/', :target => '_blank'
+            \. Enjoy and be sure to let us know what you think about the site!
+          - else
+            Much like the elusive dark energy, the profile information of this weakly interacting user has yet to be observed. 
+        .clear
+      .clear
+    .clear
+    
+    .grid_13.alpha.omega
+      - unless @knotebooks.empty? && @user.favorites.empty?
+        - unless @knotebooks.empty?
+          .my_knotebooks
+            .index_header
+              .index_title
+                %h4= image_tag('/images/kb_icon.png') + "My Knotebooks (#{@user.knotebooks.count})"
+              .index_options
+                = link_to "Basics", "#", :class => "basic", :onClick => "setActiveStyleSheet('basicKb'); return false;"
+                \|
+                = link_to "Details", "#", :class => "detail", :onClick => "setActiveStyleSheet('detailKb'); return false;"
+              .clear
+            .knotebooks_list
+              .list_header
+                .col1 Title
+                .col2 Abstract
+                .col3 Concepts
+                .clear
+              .clear  
+              .list_body= render :partial => @knotebooks
+              .list_footcap
+                .pages= will_paginate @knotebooks
+                .clear
+          %br
+          .clear
+        - unless @favorites.empty?
+          .my_favorites
+            .index_header
+              .index_title
+                %h4= image_tag('/images/star.png') + "My Favorites (#{@user.favorites.count})"
+              .index_options
+                = link_to "Basics", "#", :class => "basic", :onClick => "setActiveStyleSheet('basicKb'); return false;"
+                \|
+                = link_to "Details", "#", :class => "detail", :onClick => "setActiveStyleSheet('detailKb'); return false;"
+              .clear
+            .favorites_list
+              .list_header
+                .col1 Title
+                .col2 Abstract
+                .col3 Concepts  
+                .clear  
+              .clear          
+              .list_body= render :partial => 'knotebooks/favorite', :collection => @favorites
+              .list_footcap
+                .pages= will_paginate @favorites, :param_name => :favorite_page
+                .clear
+      - else        
+        .no_knotebooks
+          %h4 My Knotebooks
+          .zero_knotebooks.round_corners
+            - if @user == current_user
+              %p You don't have any knotebooks yet! There are three ways to get started:
+              %ol
+                %li
+                  = link_to "Create one from scratch", new_knotebook_path
+                  about any topic in physics and math,
+                %li
+                  = link_to "Browse, customize and save your own version", knotebooks_url
+                  of someone else's knotebook, or
+                %li
+                  = link_to "See who else is contributing", users_url
+                  for some inspiration!
+            - else
+              No knotebooks here! 
+              = link_to "Try these instead.", knotebooks_url
+  .clear
+.clear
+
+- content_for :comments do
+  = render :partial => 'comments/user_comments'
+
+- content_for :css do
+  = stylesheet_link_tag 'detailKb', :rel => "stylesheet", :title => "detailKb"
+  = stylesheet_link_tag 'basicKb', :rel => "alternate stylesheet", :title => "basicKb"
+
+- content_for :javascript do
+  = javascript_include_tag 'styleswitchKb', 'swap', "http://s7.addthis.com/js/250/addthis_widget.js?pub=joeflip4"
+  = render :partial => 'shared/tinymce'

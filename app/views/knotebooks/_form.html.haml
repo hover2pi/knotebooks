@@ -1,0 +1,57 @@
+.grid_13#new_knotebook
+  - form_for @knotebook do |kb|
+    = kb.error_messages
+    .kb_title_container
+      = kb.label :title
+      %span.remaining#title_remaining 80
+      .clear
+      = kb.text_field :title
+    .clear
+    .kb_title_container
+      = kb.label :abstract
+      %span.remaining#abstract_remaining 400
+      .clear
+      = kb.text_area :abstract
+    .clear
+    - unless @knotebook.knotes.blank?
+      .kb_concepts
+        %span.the_concepts In this knotebook:
+        = @knotebook.concepts
+      / .kb_difficulty
+      /   %span.diff-slider-title{ :value => "amount"} Difficulty range:
+      /   %input{ :type => "text", :id => "amount", :disabled => true, :style => "border:0; color:#f6931f; font-weight:bold;" }
+      /   .the_slider
+      /     #slider-range
+      /     %table#diff-scale
+      /       %tr
+      /         %td General Audience
+      /         %td High School
+      /         %td Undergrad
+      /         %td Graduate+
+      /       .clear
+      .clear
+    %button{ :type => 'submit' }= @knotebook.new_record? ? "Create knotebook" : "Save/View knotebook"
+  
+
+- content_for :javascript do
+  :javascript
+    $(function(){
+      var title = knotebooks.character_counter($("#title_remaining"), 80),
+          abstract = knotebooks.character_counter($("#abstract_remaining"), 400);
+      $("#knotebook_title").keyup(function(){ title.increment(this); }).keyup();
+      $("#knotebook_abstract").keyup(function(){ abstract.increment(this); }).keyup();
+    });
+
+    $(function() {
+      $("#slider-range").slider({
+        range: true,
+        min: 0,
+        max: 100,
+        values: [25, 50],
+        step: 5,
+        slide: function(event, ui) {
+          $("#amount").val(ui.values[0] + ' - ' + ui.values[1]);
+        }
+      });
+      $("#amount").val($("#slider-range").slider("values", 0) + ' - ' + $("#slider-range").slider("values", 1));
+    });

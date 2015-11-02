@@ -1,0 +1,332 @@
+@import constants.sass
+
+#print_title
+  :display none  
+#knotebook
+  #knotebook_title
+    :border = !thin
+    :padding 0.4em 0.5em
+    :color = !red_dark
+    :overflow hidden
+    #knotebook_title_links
+      :line-height = 16px
+      :font-size = !h6
+      :padding-top = !h8
+      :text-decoration none 
+      :width 100%
+      a
+        :font-weight normal
+      .created_by
+        :width 80%
+        :float left
+      .share_this
+        :width 20%
+        :float right
+        :text-align right
+        :overflow hidden
+        a.print img
+          :vertical-align top
+          :padding 0 4px 0 6px
+        a.share
+          :background url('/images/addthis.png') no-repeat top right
+          :padding 0 20px 0 4px
+          &:hover
+            :background-position bottom right
+  .save_to_favorites
+    :display inline
+    a img
+      :vertical-align top
+      :padding-left 4px
+  .knotebook_end
+    :background = !highlight
+    :padding = !h9 !h7
+    :border = !thin
+    :line-height = !line_height
+    :font-size = !h6
+    .top_of_page
+      :width 50%
+      :float left
+    .end_options
+      :text-align right
+      :width 50%
+      :float right
+      a.edit_me
+        :margin-right 4px
+      a.delete_me
+        :margin-left 4px
+      a img
+        :vertical-align middle
+        :padding 0 5px 2px 0
+  #references
+    :background-color = !highlight
+    :font-size = !h6
+    :margin-top = !h6
+    .reference_container
+      :padding = !h6
+      :border = !thin
+      li
+        :margin-left = !h3
+        p
+          :display inline
+        img
+          :vertical-align middle
+          :margin 0 0 2px 5px
+      li:last-child
+        :margin-bottom 0
+      .ref_label
+        :font-weight bold
+      .original
+        :margin-top = !h8
+  
+.knotebook_index
+  :font-size = !h6
+  :line-height = !h4
+  :border-top = !thin
+  :border-left = !thin
+  :padding = !h7
+  :overflow hidden
+  img
+    :padding = 0 !h9
+    :vertical-align top
+  .index_abstract
+    span.abstract_label
+      :font-weight bold
+  .index_table_of_contents
+    .table_of_contents
+      :font-weight bold
+      :margin-top = !h6
+    ul
+      :padding-top = !h8
+      li.sidebar_link
+        :font-size 100%
+        :margin-left = 0em
+        :line-height = !h4
+        &:before
+          :content "» "
+  .index_table_of_concepts
+    :padding = !h7 0
+    :border-top = !thin
+    .table_of_concepts
+      :font-weight bold
+    p
+      :margin = 3px 0 0 0
+      :line-height = !h3
+    img
+      :padding 0
+      :border = !dark
+  .index_grabatar
+    :padding = !h7 0
+    :border-top = !thin
+    img
+      :width 141px
+  .index_links
+    :border-top = !thin
+    :padding-top = !h8
+    img
+      :margin-right 3px
+    .index_com, .index_ref
+      :margin-top = !h8
+.comment_sidebar
+  :border = !thin
+  :padding = !h7
+  :background = !lightest
+  :font-size = !h6
+  :line-height = !h4
+  .comment_table_of_contents
+    :font-weight bold
+    ul.comments_toc      
+      :padding-top = !h8
+      li.sidebar_link
+        :list-style none
+        :font-size 100%
+        :margin-left = 0em
+        :line-height = !h4
+        &:before
+          :content "» "
+        &:last-child
+          :margin-bottom = 0
+
+.knote
+  :margin = !h7 0em !h6 0
+  span.knote_content_tab
+    :font-size = !h7
+    :padding = 3px !h7 2px !h7
+    :margin 0
+    :color = !grey_dark
+    :text-transform capitalize
+    :background = !grey_light
+    :border-radius = 4px 4px 0 0
+    :-moz-border-radius = 4px 4px 0 0
+    :-webkit-border-radius = 4px 4px 0 0
+  .knote_title_container
+    :position relative
+    :left 0
+    :width = 758px
+    :height = 33px
+    :border = !thin
+    .knote_title
+      :position absolute
+      :width = 690px
+      :padding = !h9 !h8 0 !h8
+      :overflow hidden
+      h4
+        :color = !blue_dark
+        :text-decoration none
+        :line-height = 30px
+    //:left 33px
+    //:width = 676px
+    //:padding = !h9 !h8 0 !h7
+    //.knote_easier, .knote_harder
+    //  :position absolute
+    //  :width = 33px
+    //  :height = 33px
+    //  :float left
+    //  a
+    //    :display block
+    //    :background transparent url('/images/easier-harder.gif') no-repeat
+    //    :height 33px
+    //    :width 33px
+    //    :text-indent -9999px
+    //.knote_easier
+    //  :left 0
+    //  :border-right = !thin
+    //  a
+    //    :background-position top left
+    //  a:hover
+    //    :background-position bottom left
+    //.knote_harder
+    //  :right 0
+    //  :border-left = !thin
+    //  a
+    //    :background-position top right
+    //  a:hover
+    //    :background-position bottom right
+    .knote_expand
+      :position absolute
+      :right 0
+      :width = 60px
+      :height = 33px
+      :border-left = !thin
+      :float left
+      a
+        :display block
+        :background transparent url('/images/expand_button.png') no-repeat top left
+        :height 33px
+        :width 60px
+        :text-align center
+      a:hover
+        :background-position bottom left
+  .knote_details
+    :background-color = !highlight
+    :padding = !h7
+    :border = !thin
+    :border-top none
+    :font-size = !h6
+    :z-index = 2
+    :position absolute
+    :width = 741px
+    :display none
+    .knote_concepts
+      :padding-right 125px
+      :margin-bottom = !h8
+      span.knote_content_type
+        :color = !grey_dark
+        :text-transform capitalize
+        :padding-right = !h8
+        &:after
+          :content ":"
+      span.knote_concept_list
+        :line-height = !h4
+    .knote_buttons
+      :padding-right 125px
+      img
+        :vertical-align bottom
+        :margin-right = 5px
+      a
+        :margin = 0 !h8
+        &.remove_knote
+          :margin 0
+    .knote_swap
+      :position absolute
+      :right 0
+      :top 8px
+      :width 15%
+      :padding = 0 !h7
+      :text-align center
+      .media_type_select select
+        :width 100px
+        :margin-top = !h7      
+  .knote_content
+    :padding = !h7 !h7 0 !h7
+    :font-size = 0.9em
+    >table
+      :margin-bottom = !h3
+      caption
+        :line-height = !h4
+      tr
+        &:first-child td
+          :background-color = !harmony_light
+          :font-weight bold
+          :border-color = !grey_mid
+      td
+        :border = !thin
+        :padding = !h7 !h7 !h8 !h7
+        :vertical-align middle
+        :line-height = 20px
+        :background = !lightest
+        img
+          :vertical-align middle
+      table
+        :margin-bottom 0 !important
+    p
+      :text-align justify
+      >img
+        :vertical-align middle
+        :padding = 0 !h9
+        &.aligncenter
+          :display block
+          :margin = !h6 auto
+          :border = 5px solid !lightest
+        &.alignleft
+          :float left
+          :margin = !h6 !h4 !h6 0
+          :border = 5px solid !lightest
+        &.alignright
+          :float right
+          :margin = !h6 0 !h6 !h4
+          :border = 5px solid !lightest
+        &.latex_center
+          :margin = !h2 auto
+          :display block
+          :border none !important
+        &.latex_inline  
+          :border none !important
+    .video_knote
+      :margin-top = !h6
+      :overflow hidden
+      span.video_label
+        :font-weight bold
+      .video_player
+        :width 420px
+        :float left
+        .youtube
+          :width 374px
+          :height 274px
+          :background = !grey_light
+          p
+            :text-align center
+            :color = !grey_dark
+            :margin = !h6 !h1
+      .video_caption
+        :width 320px
+        :float right
+        p
+          :margin 0
+        .video_grabatar img
+          :float right
+          :width 141px
+        .print_url
+          :display none
+
+#knotebook .knote .search_knote_details
+  :display none

@@ -1,0 +1,20 @@
+#knotebook_title
+  %h2=h @knotebook.title
+  #knotebook_title_links.red_links
+    .created_by= render "knotebooks/title/#{@knotebook.knotebook_type.downcase}", :object => @knotebook, :locals => { :original => @original }
+    .share_this
+      = link_to "Print" + image_tag("/images/print.png"), "#", :onClick => "window.print();return false;", :class => "print"
+      \|
+      = link_to "Share", "http://www.addtoany.com/share_save", :class => 'a2a_dd share'
+      .clear
+    .clear
+
+- content_for :javascript do
+  :javascript
+    var addthis_config = {
+      data_use_flash: false,
+      ui_cobrand: "Knotebooks",
+      services_compact: "email,facebook,google,twitter,blogger,wordpress,digg,more",
+      services_exclude: "print",
+      ui_use_addressbook: "true"
+    }

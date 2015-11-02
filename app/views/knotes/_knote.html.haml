@@ -1,0 +1,22 @@
+- knote_counter ||= params[:position]
+
+- div_for knote do
+  - unless knote.content_type == "explanation"
+    %span.knote_content_tab= knote.content_type
+  .knote_title_container
+    / .knote_easier
+    /       = link_to_ajax "Easier", easier_knotebook_knote_path(@knotebook, knote), :class => "easier_knote", :title => 'Find easier knote'
+    .knote_title
+      %a{ :name => knote.id }
+        %h4=h knote.title
+    / .knote_harder
+    /       = link_to_ajax "Harder", harder_knotebook_knote_path(@knotebook, knote), :class => "harder_knote", :title => 'Find harder knote'
+    .knote_expand= link_to_void
+    .clear
+  = render :partial => '/knotes/swap', :locals => { :knote => knote }
+  .search_knote_details
+    .knote_concepts
+      %span.knote_content_type= knote.content_type
+      %span.knote_concept_list= knote.concepts_list
+  .knote_content= render :partial => "knotes/type/#{knote.knote_type.downcase}", :object => knote
+  .clear

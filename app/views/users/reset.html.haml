@@ -1,0 +1,18 @@
+.grid_3= render :partial => 'pages/skyscraper_ad'
+
+.grid_13#help
+  %h3
+    Change password for
+    %span.full_email= @user.email
+  - form_for :user do |f|
+    = f.error_messages
+    %p.small_text
+      = image_tag('/images/bullet_go.png')
+      = label_tag 'New password:'
+      = f.password_field :password, :size => 20
+    %p.small_text
+      = image_tag('/images/bullet_go.png')
+      = label_tag 'password_confirmation', 'One more time:', :class => 'required'
+      = f.password_field :password_confirmation, :size => 20
+    %p
+      = f.submit 'Reset Password'

@@ -1,0 +1,17 @@
+.grid_3
+  .knotebook_index.red_links
+    .index_abstract
+      %span.abstract_label Abstract:
+      = @knotebook.abstract
+    .index_table_of_contents
+      .table_of_contents Table of Contents:
+      %ul.knotes_toc
+        = render :partial => "knotes/sidebar/show", :collection => @knotebook.knotes, :as => :knote
+    .index_table_of_concepts
+      .table_of_concepts In this knotebook:
+      %p= @knotebook.concepts_list.join(", ")
+    - if @knotebook.user.is_org?
+      .index_grabatar= link_to image_tag(@knotebook.user.logo), @knotebook.user, :title => @knotebook.user.org_name
+    .index_links
+      .index_ref= link_to image_tag("/images/references.png") + 'References', "#references"
+      .index_com= link_to image_tag("/images/comment_icon.png") + 'Comments', "#comments"

@@ -1,0 +1,57 @@
+knotebooks.unload_tinymce("tinymce");
+// 
+// var el = $('#new_knotebook').wrap('<div />');
+// var wrapper = el.parent().css('overflow', 'hidden');
+// 
+// var el_height = el.outerHeight({ margin: true });
+// wrapper.height(el_height);
+// 
+// var repl = $("<%= escape_javascript(render :partial => 'knotes/form/form') %>")
+//   .insertAfter(el);
+// 
+// // Position the new knote
+// var width = el.outerWidth({ margin: true });
+// repl.offset({
+//   top: el.offset().top,
+//   left: el.offset().left + width
+// });
+// 
+// // Figure out what our height should be
+// var repl_height = repl.outerHeight({ margin: true });
+// var new_height = (el_height > repl_height) ? el_height : repl_height;
+// 
+// // Animate the height change
+// if(new_height > el_height) {
+//   wrapper.animate({ height: new_height });
+// }
+// 
+// // Animate them both!
+// el.hide('slide', { direction: "left" }, 500);
+// 
+// repl.animate({ left: "-=" + width + "px" }, 500, function(){
+//   knotebooks.load_tinymce(repl.children('textarea'));
+//   if(el_height > new_height) {
+//     wrapper.animate({ height: repl_height });
+//   }
+//   el.unwrap().remove();
+//   // Undo the new knote's explicit positioning
+//   repl.css({top: '', left: ''});
+// });
+// 
+
+
+
+// $('#new_knotebook').hide('slide', { direction: 'left' }, 500, function(){
+//   $("<%= escape_javascript(render :partial => 'knotes/form/form') %>")
+//     .insertAfter($(this))
+//     .hide()
+//     .show('slide', { direction: 'right' }, 500, function(){
+//       knotebooks.load_tinymce('tinymce');
+//     });
+//   $(this).remove();
+// });
+
+$('#new_knotebook').fadeOut(function(){
+  $(this).replaceWith("<%= escape_javascript(render :partial => 'knotes/form/form') %>");
+  knotebooks.load_tinymce('tinymce');
+});

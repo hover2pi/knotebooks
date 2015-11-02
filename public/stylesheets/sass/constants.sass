@@ -1,0 +1,283 @@
+!lightest = #fafafa
+!highlight = #eeeeee
+!grey_light = #e1e1e1
+!grey_mid = #bbbbbb
+!grey_dark = #a0a0a0
+!green_lightest = #f0fcef
+!blue_lightest = #eff5fc
+!blue_light = #D2E4EF
+!blue_mid = #88b7d4
+!blue_dark = #325c9a
+!black = #362f2d
+!yellow_light = #FFFACD
+!yellow_mid = #fff59a
+!yellow_dark = #fff59a
+!red_lightest = #fef1f2
+!red_light = #efcfcc
+!red_dark = #980905
+!harmony_light = #dde2eb
+!harmony_dark = #6f82a9
+
+!green_text = #047b0d
+!yellow_text = #f7cb0c
+!orange_text = #f79c0c
+!red_text = #980905
+
+!h1 = 3em
+!h2 = 2.5em
+!line_height = 1.8em
+!h3 = 1.5em
+!h4 = 1.25em
+!h5 = 1em
+!h6 = 0.85em
+!h7 = 0.65em
+!h8 = 0.4em
+!h9 = 0.25em
+
+!dark = solid 1px !grey_mid
+!thin = solid 1px !grey_light
+!thick = solid 5px !grey_light
+
+h1
+  :font-size = !h1
+h2
+  :font-size = !h2
+h3
+  :font-size = !h3
+h4
+  :font-size = !h4
+h5
+  :font-size = !h5
+h6
+  :font-size = !h6
+h7
+  :font-size = !h7
+
+a
+  :color = !blue_dark
+  :font-weight bold
+  :text-decoration none
+  &:hover
+    :color = !black
+
+button
+  :cursor pointer
+  :outline none 0
+  :-moz-outline-style none 0
+  :-moz-border-radius 5px
+  :-webkit-border-radius 5px
+  :background = transparent url("/images/button_middle.png") repeat-x top
+  :color = #444
+  :display block
+  :font-size 13px
+  :font-weight bold
+  :height 24px
+  :border 1px solid #aaaaaa
+  :padding = 0 10px 2px 10px
+  &:hover
+    :background-position center
+    :border-color = #a0b4cc
+    :color = !blue_dark
+  &:active
+    :background-position bottom 
+    :border-color = #a0b4cc
+    :color = !blue_dark
+  &:focus::-moz-focus-inner
+    :border-color transparent !important
+  
+p
+  :line-height = !line_height
+  :text-decoration none
+  :margin-bottom = !h6
+  &:last-child
+    :margin-bottom 0 !important
+  &.code
+    :margin-top = !h7
+    :padding = !h7
+  
+ul
+  li
+    :list-style-image url(/images/bullet_go.png)
+    :line-height = !h3
+    :margin-left = !h2
+    :margin-bottom = !h6
+    img
+      :vertical-align middle
+
+ol
+  li
+    :list-style-type decimal
+    :line-height = !h3
+    :margin-left = !h2
+    :margin-bottom = !h6
+
+hr
+  :border none
+  :background-color = !grey_light
+  :height 1px
+  :width 100%
+  :text-align center
+
+textarea
+  :font-family "Myriad Pro", Myriad, Arial, Helvetica, sans-serif
+  :font-size 13px
+  :padding 3px 0
+  &.code
+    :line-height = !h4
+    
+.defaultSkin span.mce_fullscreen
+  &:after
+    :content 'Fullscreen Editor' 
+    :line-height = 20px
+    :overflow hidden
+    :padding-left = 1.8em
+    :font-size = !h6
+    :color = !black
+.mce_latex, a.mce_fullscreen_latex
+  :width 42px !important
+  img
+    :width 38px !important
+    :height 16px !important
+    :padding 2px !important
+
+textarea.RTE
+  :width 100%
+  :height 300px
+
+.red_links
+  a
+    :color = !red_dark
+  a:hover
+    :color = !black
+    
+.inverse_links
+  a
+    :color = !black
+  a:hover
+    :color = !blue_dark
+
+.round_corners
+  :-moz-border-radius 10px
+  :border-radius 10px
+  :-webkit-border-radius 10px
+  :border = !thin
+  :border-color = !grey_light
+  :padding = !h6
+  
+.code
+  :font-family monospace
+  :background-color = !harmony_light
+  
+.giant_button, #login_button
+  :float left
+  a
+    :display block
+    :background transparent url('/images/login_bg.png') repeat-x top
+    :outline none 0
+    :text-align center
+    :overflow hidden
+    :border = !thin
+    :border-radius 10px
+    :-moz-border-radius 10px
+    :-webkit-border-radius 10px
+    img
+      :margin 0 auto
+      :padding = !h7 0 !h8 0
+      :display block
+    &:hover
+      :background-position center
+      :border-color = !blue_light
+    &:active
+      :background-position bottom 
+      :border-color = !blue_light
+#login_button
+  :width 98%
+  :padding 0 1px
+  a
+    :height 88px
+    :width 100%
+.giant_button
+  :width 300px !important
+  :margin = 50px 0 0 120px !important
+  a
+    :height = 53px !important
+    :font-size = !h4 !important
+    :padding-top = 35px !important
+
+#not_found
+  :display none
+  :width 400px
+  :background-color #fff
+  :border solid 10px #666
+  :border solid 10px rgba(82,82,82,0.698)   
+
+.tips
+  :font-size = 0.8em
+  :font-weight normal
+  :line-height = !h4
+  :margin-top = !h8
+
+//pages
+// .pagination
+//   :float right
+//   :font-size = !h6
+//   :display inline
+//   a, span
+//     :display block
+//     :float left
+//     :margin-right = !h8
+//     :padding = !h8 !h7 !h9 !h7
+//     :background-color = !lightest
+//     :border = 1px solid !grey_light
+//   a:hover
+//     :color = !black
+//     :border-color = !grey_dark
+//   span.disabled
+//     :color = !grey_dark
+//   span.current
+//     :border-color = !black
+//     :color = white
+//     :background-color = !blue_dark
+      
+.pages
+  .pagination
+    :text-align right
+    :margin = !h9 0
+    span
+      :-moz-border-radius 5px
+      :-webkit-border-radius 5px
+      :border-radius 5px
+      :background = transparent url("/images/button_middle.png") repeat-x top
+      :color = !grey_dark
+      :font-size 13px
+      :font-weight bold
+      :height 24px
+      :border 1px solid #aaaaaa
+      :padding = !h8 !h7 !h9 !h7
+      &.current
+        :background-position bottom
+        :color = !blue_dark
+        :border-color = #a0b4cc
+    a
+      :cursor pointer
+      :outline none 0
+      :-moz-outline-style none 0
+      :-moz-border-radius 5px
+      :-webkit-border-radius 5px
+      :background = transparent url("/images/button_middle.png") repeat-x top
+      :color = #444
+      :font-size 13px
+      :font-weight bold
+      :height 24px
+      :border 1px solid #aaaaaa
+      :padding = !h8 !h7 !h9 !h7
+      &:hover
+        :background-position center
+        :border-color = #a0b4cc
+        :color = !blue_dark
+      &:active
+        :background-position bottom 
+        :border-color = #a0b4cc
+        :color = !blue_dark
+      &:focus::-moz-focus-inner
+        :border-color transparent !important

@@ -1,0 +1,425 @@
+@import constants.sass
+
+body  
+  :font-family "Myriad Pro", Myriad, Arial, Helvetica, sans-serif
+  :font-size 62.5%
+  :background-color white
+  a
+    :color black !important
+    :text-decoration none
+  li
+    :list-style-image none
+    :margin-left 0
+  hr
+    :background-color = !black
+    
+  
+html>body
+  :font-size 14px
+  :color = black
+  :background = white
+  
+#main
+  :background-color white
+  :padding = 0
+      
+#control_bar, #adbar, #navigation, #footer, #footer_home, #ajax-status, #jGrowl, #fdbk_tab, #news_post, .knotebook_index .index_links, .knote_concepts, .knotebook_index .index_grabatar, .skyscraper, #knotebook #knotebook_title, #knotebook .knotebook_end, #knotebook_index img, .knote .knote_expand, .knote .knote_details, .comment_delete, .comments_submit_form, .login_to_comment, span.knote_content_tab
+  :display none
+
+#print_title
+  :font-size = !h2
+  :font-weight bold
+  
+#knotebook
+  #references
+    :background-color = !highlight
+    :margin-top = !h6
+    .reference_container
+      :padding = !h5
+      :border = 1px solid !black
+      li
+        :margin-left = 0
+        :list-style lower-roman 
+        p
+          :display inline
+        img
+          :vertical-align middle
+          :margin 0 0 2px 5px
+      li:last-child
+        :margin-bottom 0
+      .ref_label
+        :font-weight bold
+      .original
+        :margin-top = !h8
+
+.knotebook_index
+  :margin-top = 20px
+  :line-height = !h4
+  :padding = !h5
+  :border = 1px solid !black
+  :background-color = !highlight
+  .index_abstract
+    span.abstract_label
+      :font-weight bold
+  .index_table_of_contents
+    .table_of_contents
+      :font-weight bold
+      :margin-top = !h6
+    li
+      :line-height = !h4
+      :list-style lower-roman
+      &:last-child
+        :padding-bottom = 0em
+  .index_table_of_concepts
+    .table_of_concepts
+      :font-weight bold
+      :display inline
+      &:after
+        :content ""
+    p
+      :display inline
+      :line-height 0
+      :margin 0
+
+.knote
+  :margin = 25px 0 40px 0
+  .knote_title_container
+    .knote_title
+      h4
+        :margin 0
+        :text-decoration none
+        :font-size = !h3
+  .knote_content
+    :border-top = 1px solid !black
+    >table
+      :margin-bottom = !h3
+      caption
+        :line-height = !h4
+      tr
+        &:first-child td
+          :background-color = !grey_light
+          :font-weight bold
+          :border-color = !grey_mid
+      td
+        :border = 1px solid !black
+        :padding = !h7 !h7 !h8 !h7
+        :vertical-align middle
+        :line-height = 20px
+        :background = !highlight
+        img
+          :vertical-align middle
+      table
+        :margin-bottom 0 !important
+    p
+      :text-align justify
+      >img
+        :vertical-align middle
+        :padding = 0 !h9
+        &.aligncenter
+          :display block
+          :margin = !h6 auto
+          :border = 5px solid !lightest
+        &.alignleft
+          :float left
+          :margin = !h6 !h4 !h6 0
+          :border = 5px solid !lightest
+        &.alignright
+          :float right
+          :margin = !h6 0 !h6 !h4
+          :border = 5px solid !lightest
+        &.latex_center
+          :margin = !h2 auto
+          :display block
+          :border none !important
+        &.latex_inline  
+          :border none !important
+    .video_knote
+      :overflow hidden
+      :padding-top = !h6
+      .video_player
+        :display none
+      .video_caption
+        p
+          :margin-top = !h8
+
+#comments
+  .comments_container
+    h4
+      :margin-bottom = !h8
+      :margin-top = 50px  
+      :font-size = !h3
+    .comments_list
+      .comment_row
+        :border = 1px solid !black
+        :margin-bottom = !h6
+        &.odd
+          :background-color white
+        &.even
+          :background-color = #fafafa
+        .comment_details
+          :padding = !h6
+          :height 50px
+          .comment_gravatar
+            img
+              :border = 1px solid !black
+              :background-color white
+              :float left
+          .comment_author
+            :display none
+          .comment_name
+            :display inline
+            :font-size = !h4
+            :padding = !h5
+          .comment_date
+            :display inline
+        .comment_text
+          :padding = 0 !h6 !h6 !h6
+          >table
+            :margin-bottom = !h3
+            caption
+              :line-height = !h4
+            tr
+              &:first-child td
+                :background-color = !harmony_light
+                :font-weight bold
+                :border-color = !grey_mid
+            td
+              :border = 1px solid black
+              :padding = !h7 !h7 !h8 !h7
+              :vertical-align middle
+              :line-height = 20px
+              :background white
+              img
+                :vertical-align middle
+            table
+              :margin-bottom 0 !important
+          img
+            :border none
+  
+.index_header
+  .index_title
+    :font-size = !h4
+    :font-weight bold
+    h4 
+      :margin-top 0
+  .index_options
+    :display none
+
+.knotebooks_list, .favorites_list, .users_list
+  ul
+    li
+      :list-style-image url(/images/bullet_go.png)
+      :margin-left 0
+      :padding-bottom = 0
+  .list_footcap, .list_header
+    :display none
+  .list_body
+    :border-bottom = !dark
+    .list_elements    
+      :padding-bottom = !h5
+      :border-top = !dark
+      &.even
+        :background-color = !lightest
+      &.odd
+        :background-color white
+      .kb_title p
+        :font-size = !h4
+      .kb_abstract
+      .kb_concept_list p
+        &:before
+          :content "In this knotebook: "
+      .user_info
+        :line-height 19px
+        :padding = !h5 0
+        :height 58px
+        .user_gravatar
+          :float left
+          :margin = !h9 !h7 0 !h9
+          img
+            :vertical-align top
+            :background-color white
+            :border = 1px solid !black
+        .user_deets
+          .stats
+            :width 50%
+            :float left
+            .kn_count, .cm_count
+              :width 50px
+              img
+                :border none
+                :margin-right = 4px
+                :vertical-align middle
+      .user_knotebooks
+        ul.contributor
+          :margin = !h7 0 0 0
+          li
+            :color = !grey_dark
+
+#news_page, #browse, #contributors, #tou_page, #faq_page, #requests_page
+  h4
+    :margin-bottom = !h7
+  .license_plates
+    img
+      :margin-right = !h7
+      :vertical-align middle
+  ul.instructions
+    :margin-bottom = !h6
+    li
+      :margin-bottom = !h8
+
+#browse
+  #concept_sidebar
+    :display none
+
+#news_page
+  .blog_title
+    :width 100%
+    :display block
+    :border-bottom = !thin
+    :margin-bottom = !h4
+    .blog_name
+      :font-size = 30px
+      :font-weight bold     
+      :color = !blue_dark 
+    .blog_tag
+      :margin = !h8 0
+      :font-size = !h4
+      :font-weight bold
+  .tab_fix
+    :display none
+
+#blog
+  .post
+    :padding-bottom = !h2
+    h3
+      :margin-bottom = !h9
+      :line-height = !h4
+    .dateline
+      :color = #777777
+      :padding = 2px 0 !h6 22px   
+      :background transparent url('/images/cal.png') no-repeat
+    .post_content
+      :padding-top = !h6
+      :border-top = !thin
+      img
+        :margin = !h6 !h4 !h6 0
+        :border = 5px solid !lightest
+      >table
+        :margin-bottom = !h3
+        caption
+          :line-height = !h4
+        tr
+          &:first-child td
+            :background-color = !harmony_light
+            :font-weight bold
+            :border-color = !grey_mid
+        td
+          :border = !thin
+          :padding = !h7 !h7 !h8 !h7
+          :vertical-align middle
+          :line-height = 20px
+          :background = !lightest
+          img
+            :vertical-align middle
+        table
+          :margin-bottom 0 !important 
+
+#about_page
+  :vertical-align middle
+  .about_left_icons
+    :width 45%
+    :float left
+    :margin-top = !h6
+    .creative_commons
+      :float left
+      :padding-top = !h4
+    .famfamfam
+      :float right
+      :padding-top = !h3
+  .about_right_icons
+    :width 40%
+    :float right
+    :padding-right = !h6
+    .jquery
+      :float left
+    .rails
+      :float right
+      :padding-top = !h6
+
+#faq_page
+  .faq_toc
+    :font-weight bold
+    :margin = !h5 0 !h7 0
+  textarea.copy2clipboard
+    :width 98%
+    :height 34px
+    :padding = !h8
+    :border = !thin
+    :background-color = !highlight
+  p.top_of_page
+    :display none
+  ol.faq_items
+    :font-weight bold
+    :padding 0
+    li
+      :margin = !h5 0 !h7 !h4
+      p
+        :font-weight normal
+    li#reference_style
+      :padding-bottom 0
+    ol.lower_roman
+      li
+        :list-style-type lower-roman
+
+#profile
+  .my_knotebooks, .no_knotebooks, .my_favorites
+    :margin-top = !h3
+    .knotebooks_list, .zero_knotebooks, .favorites_list
+      :margin-top = !h8
+    h4
+      :margin-bottom = !h7
+  .profile_label
+    :font-weight bold
+    :margin-bottom = !h9
+  .profile_gravatar
+    :margin = !h7 0
+    img
+      :border = !thin
+        :color = !black
+  #profile_info, #no_profile_info, #profile_image, .zero_knotebooks
+    :margin = !h7 0
+    .edit_profile_link
+      :display none
+  #profile_info, .zero_knotebooks
+    :background-color = !highlight
+    :border none
+    div
+      :margin-bottom = !h6
+      &:last-child
+        :margin-bottom 0
+    #profile_bio, #profile_website, #profile_education, #profile_work  
+      span.profile_label
+        :margin-right = !h9
+  #no_profile_info
+    :line-height = !line_height
+    :background-color = !yellow_light
+    :border-color = !yellow_dark
+    hr
+      :background-color = !yellow_dark
+
+#about_page img
+  :border 0
+
+#home_page
+  :text-align center
+  p.blurb
+    :margin = !h8 0 !h7 0
+    :height = !line_height*2
+    :overflow hidden
+    :text-overflow hidden
+  p.icon
+    :height 150px
+    :margin 0
+    :padding 0
+  h2
+    :margin-top = !h9

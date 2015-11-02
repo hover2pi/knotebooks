@@ -1,0 +1,17 @@
+- if @knote.new_record?
+  .manual_ref
+    = radio_button_tag "knote[references]", "manual", :selected => true
+    = link_to "References", "/faq#3", :title => "See reference styles", :target => '_blank'
+  .or - or -
+  .auto_ref
+    = radio_button_tag "knote[references]", "auto"
+    = label_tag :knote_references_auto, "This is my original content"
+- else
+  .manual_ref
+    = link_to "References", "/faq#3", :title => "See reference styles", :target => '_blank'
+.license
+  = link_to "License", "/faq#2", :title => "About licenses", :target => '_blank'
+  = f.select :license, [['CC0', 'CC0'], ['CC BY', 'CCBY'], ['CC BY-SA', 'CCBYSA'], ['CC BY-NC-SA', 'CCBYNCSA']]
+.clear
+.reference= f.text_area :source
+.clear

@@ -1,0 +1,67 @@
+.grid_3= render :partial => 'pages/skyscraper_ad'
+.grid_13#requests_page
+  %h4 Knotebook requests
+  %hr
+  %ul.instructions 
+    %li Can't find a particular explanation? Ask the community to create it with a knotebook request! 
+    %li Want to contribute? Well, here are 47 specific suggestions! Click on a request to fill it!
+  %table.tablesorter.requests_list
+    %thead
+      %tr
+        %th Rank
+        %th Type
+        %th Request
+        %th
+    %tbody
+      %tr
+        %td.rank 1.
+        %td.type{ :title => 'Knote request' }= image_tag('/images/kn_icon.png')
+        %td.request= link_to "A video about the Schartzchild Radius and Hawking Radiation"
+        %td.vote
+          %button +1 Vote
+      %tr{ :class => 'even' }
+        %td.rank 2.
+        %td.type{ :title => 'Knotebook request' }= image_tag('/images/kb_icon.png')
+        %td.request= link_to "How about a whole knotebook explaining the vagaries of Quantum Chromodynamics and color charge?  Dude, that would be totes the tits and also fucking awesome."    
+        %td.vote
+          %button +1 Vote  
+      %tr
+        %td.rank 3.
+        %td.type{ :title => 'Knote request' }= image_tag('/images/kn_icon.png')
+        %td.request= link_to "An easier explanation of foobar"
+        %td.vote
+          %button +1 Vote
+      %tr
+        %td.rank 4.
+        %td.type{ :title => 'Knote request' }= image_tag('/images/kn_icon.png')
+        %td.request= link_to "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+        %td.vote
+          %button +1 Vote
+      %tr
+        %td.rank 5.
+        %td.type{ :title => 'Knote request' }= image_tag('/images/kn_icon.png')
+        %td.request= link_to "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        %td.vote
+          %button +1 Vote
+      %tr
+        %td.rank 6.
+        %td.type{ :title => 'Knotebook request' }= image_tag('/images/kb_icon.png')
+        %td.request= link_to "Pump ya brakes"
+        %td.vote
+          %button +1 Vote
+      %tr
+        %td.rank 7.
+        %td.type{ :title => 'Knote request' }= image_tag('/images/kn_icon.png')
+        %td.request= link_to "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat"
+        %td.vote
+          %button +1 Vote
+  .request_form.round_corners
+    %h4 Submit your knotebook request!
+    %li.request_tip The more votes a request gets, the greater its chances of getting filled. So vote up the things you want to see and try to only make knotebook requests that are completely unique! We'll notify you with a link when the request is filled.
+    %input.make_request
+    - fields_for 'knotebook_request', request do |i|
+      .request_type
+        This request is for 
+        %input{ :type => "radio", :checked => 'checked' } a single knote or
+        %input{ :type => "radio" } a whole knotebook
+      %button.submit_comment{ :type => 'submit'} Submit request

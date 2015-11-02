@@ -1,0 +1,9 @@
+#logging_in
+  / - form_for UserSession.new, :url => user_sessions_url do |f|
+  /   = f.text_field :login
+  /   .login_fields= f.password_field :password
+  /   = f.submit 'Login'
+  /   = f.check_box :remember_me
+  /   = f.label :remember_me
+  /   .forgot_link= link_to 'Forgot my username/password!', forgot_path
+  = RPXNow.popup_code('Login or Signup with Facebook, Google, Twitter, or any other account', 'knotebooks', rpx_login_url, :language => 'en')

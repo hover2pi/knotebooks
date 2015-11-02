@@ -1,0 +1,29 @@
+#navigation
+  .container_16
+    .grid_16
+      #nav
+        #logo
+          = link_to "Knotebooks", root_path
+        .nav_bar_buttons
+          = link_to 'Browse', knotebooks_path
+          = link_to 'Contributors', users_path
+          = link_to 'Site News', pages_path('news')
+          = link_to 'About', pages_path('about')
+        .clear 
+        #search_bar.nav_border
+          .search_form
+            - form_tag search_knotebooks_path, :method => :get do
+              = text_field_tag :search, params[:search]
+          .clear
+      #user_nav
+        - if logged_in?
+          #gravatar= link_to gravatar_for(current_user, :size => 88), current_user
+          #nav_box_container
+            .nav_box= link_to image_tag("profile_icon.png") + 'Profile', current_user, :title => "View profile"
+            .nav_box.mid= link_to image_tag("edit.png") + 'Edit', edit_user_path(:current), :title => "Edit profile"
+            .nav_box= link_to image_tag("kb_new.png") + 'Create', new_knotebook_path, :title => "New knotebook"
+        - else
+          #login_button.inverse_links
+            = RPXNow.popup_code(image_tag('/images/login.gif') + 'Login or Sign Up', 'knotebooks', rpx_login_url, :language => 'en')
+        .clear
+      .clear

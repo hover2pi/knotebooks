@@ -1,0 +1,22 @@
+.comment_row{ :class => cycle('odd', 'even'), :"data-id" => comment.id }
+  .comment_details
+    .comment_grabatar
+      - if comment.user.is_org?
+        .wee_grabatar= link_to image_tag(comment.user.logo), comment.user, :title => comment.user.org_name
+      -else 
+        .comment_gravatar= link_to gravatar_for(comment.user, :size => 50), comment.user
+        - if comment.user == comment.author
+          .comment_author author
+        - else
+          &nbsp;
+    .clear
+    .comment_name= link_to comment.user.login, comment.user
+    .comment_date= comment.created_at.to_s(:long)
+  .comment_text= comment.body
+  - if current_user == comment.author || current_user && current_user.is_admin?
+    .comment_delete= link_to image_tag("/images/trash.png", :alt => "Delete Comment", :title => "Delete comment"), [comment.commentable, comment], { :method => :delete, :confirm => "Are you sure you want to delete this comment?" }
+  .clear
+.clear
+
+- content_for :javascript do
+  = javascript_include_tag 'swap'

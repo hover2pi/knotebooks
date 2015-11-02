@@ -1,0 +1,10 @@
+= link_to "Favorited by #{favorite.user.login}", favorite.user
+\|
+= link_to "Original by #{favorite.original.user.login}", favorite.original
+- if logged_in?
+  \|
+  .save_to_favorites
+    - if favorite.user == current_user
+      = link_to "Save Changes" + image_tag('/images/star.png'), user_favorite_path(current_user, favorite), :class => "favorite"
+    - else
+      = link_to "Save to My Favorites" + image_tag('/images/star.png'), create_favorite_path(@original), :class => "favorite"

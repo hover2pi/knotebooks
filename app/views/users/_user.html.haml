@@ -1,0 +1,35 @@
+.list_elements{ :class => cycle('odd', 'even') }
+  .grid_3.alpha
+    .user_info
+      .user_gravatar= link_to gravatar_for(user, :size => 139), user
+      .user_deets
+        .username= link_to user.login, user
+        .stats
+          %span.kn_count{ :title => "#{user.knotebooks.count} knotebooks"}= image_tag('/images/kb_icon.png') + "#{user.knotebooks.count}"
+          .clear
+          %span.cm_count{ :title => "#{user.comments.count} comments"}= image_tag('/images/comment_icon.png') + "#{user.comments.count}"
+          - if user.is_org?
+            .wee_grabatar.basic= link_to image_tag(user.logo), user, :title => user.org_name
+      .clear
+    .clear
+  .grid_10.omega
+    .user_knotebooks
+      - if user.is_org?
+        .wee_grabatar.detail= link_to image_tag(user.logo), user, :title => user.org_name
+      %ul.contributor
+        - if user.knotebooks.blank?
+          %li 
+            Joined
+            = user.created_at.to_s(:long)
+        - else
+          - user.knotebooks.all(:limit => 2).collect do |kb|
+            %li{ :title => "Concepts: #{kb.concepts}"}
+              = link_to kb.title, kb
+              %span.concept_list 
+                (
+                = kb.concepts
+                )
+          - if user.knotebooks.count > 2
+            %li= link_to "See all...", user_knotebooks_url(user)
+    .clear
+  .clear

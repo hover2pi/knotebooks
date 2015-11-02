@@ -1,0 +1,11 @@
+#footer 
+  .container_16
+    = yield :footer
+    / .grid_8
+    /   .unobtainium{ :title => "Made with Unobtainium &copy; 2009" }= image_tag('/images/unobtainium_logo.png')
+    .grid_8.prefix_8
+      .footer_links
+        = link_to 'Terms of Use', pages_path('tou'), :style => "margin-right:5px"
+        \|
+        = link_to 'FAQ', pages_path('faq'), :style => "margin-left:5px"
+    .clear

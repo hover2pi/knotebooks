@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="copyright" content="Copyright CodeCogs 2007-2008
+     Written by Will Bateman.
+	
+     GNU General Public License Agreement
+     Copyright (C) 2004-2008 CodeCogs, Zyba Ltd, Broadwood, Holford, TA5 1DU, England.
+     This program is free software; you can redistribute it and/or modify it under
+     the terms of the GNU General Public License as published by Free Software Foundation, 
+     either version 3 of the License, or (at your option) any later version. 
+     You must retain a copy of this licence in all copies.
+ 
+     This program is distributed in the hope that it will be useful, but WITHOUT ANY
+     WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+     PARTICULAR PURPOSE. See the GNU General Public License for more details.
+ 
+     See the GNU General Public License for more details.
+     You should have received a copy of the GNU General Public License
+     along with this program.  If not, see <http://www.gnu.org/licenses/>."/>
+  	<title>LaTeX Editor</title>
+  	<meta name="robots" content="index, nofollow"/>
+    <meta name="description" content="Online HTML LaTeX equation editor that generates graphical equations (gif, png, swf, pdf). Produces code for directly embedding equations into HTML websites, forums or blogs. Images may also be dragged into other applications like Word. Open source and XHTML compliant."/>
+    <meta name="keywords" content="LaTeX, equation editor, equations, HTML, online, open source, mimetex, pdf, gif, png, swf, instantly rendered, customisable, instant preview"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <!-- <link rel="stylesheet" href="css/equation-2.css" type="text/css"/> -->
+    <script type="text/javascript">AC_FL_RunContent = 0;</script>
+    <script type="text/javascript" src="js/eq_editor-lite-3.js"></script>
+  	<script type="text/javascript" src="../../tiny_mce_popup.js"></script>
+  	<script type="text/javascript" src="js/latex.js"></script>
+  	<script type="text/javascript" src="../../utils/mctabs.js"></script>
+  	<script type="text/javascript" src="../../utils/form_utils.js"></script>
+  	<link href="css/latex.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body onload="renderEqn(null);">
+    <form onsubmit="LaTeXDialog.update();return false;" action="#">
+    	<div class="tabs">
+    		<ul>
+    			<li id="general_tab" class="current"><span><a href="javascript:mcTabs.displayTab('general_tab','general_panel');" onmousedown="return false;">Render LaTeX</a></span></li>
+    		</ul>
+    	</div>
+
+    	<div class="panel_wrapper">
+    		<div id="general_panel" class="panel current">
+    			<table border="0" cellpadding="4" cellspacing="0">
+            <!-- <tr>
+              <td class="nowrap">
+                <textarea name="src" id="src" cols="55" rows="4" onkeydown="cpaneldo();" onkeyup="textchanged(); autorenderEqn(10);" onkeydown="countclik(this);"></textarea>
+              </td>
+            </tr> -->
+            <tr>
+              <p class="latex_tips"> Use LaTeX to generate beautiful .png images of your equations.</p>
+              <p class="latex_tips"> Just type the LaTeX code for your equations into the editor, highlight it, and hit ESC on your keyboard.
+              <p class="latex_tips"> Numbers and letters are generated normally and Greek and math symbols are special codes preceded by a backslash "\" such as 
+                <strong>\theta</strong>
+                , 
+                <strong>\infty</strong>
+                , 
+                <strong>\sum</strong>
+                , and 
+                <strong>\int</strong>
+                .
+              </p>
+              <p class="latex_tips"> 
+                For example,
+                <strong>e^{i\pi}+1=0</strong>
+                renders as a familiar equation:
+              </p>
+              <p class="latex_img"><img src="/images/eulers_eq.png"></p>
+              <hr style="border-color:#eeeeee">
+              <p class="latex_link latex_tips"><a href="/knotebooks/6" target="_blank">Check out our full LaTeX tutorial and quick reference guide!</a></p>
+            </tr>
+            <!-- <tr>
+              <td class="nowrap">
+                <input type="checkbox" id="compressed" name="compressed" title="Place equations inline with other text" onchange="textchanged(); document.getElementById('compressed').checked=this.checked; renderEqn(null);"/>
+                <label for="eqstyle">Inline</label>
+              </td>
+            </tr>
+            <tr>
+              <td class="nowrap">
+                <input id="renderbutton" type="button" class="greybutton" onclick="renderEqn(null)" value="Click to preview equation" title="Click to rendered equation below" />
+              </td>
+            </tr>
+            <tr>
+              <td class="nowrap">
+                <img id="equationview" name="equationview" src="images/spacer.gif" title="This is the rendered form of the equation. You can not edit this directly. Right click will give you the option to save the image, and in most browsers you can drag the image onto your desktop or another program." />
+                <script type="text/javascript">editor_init('1237936211105285449','','','');</script>
+              </td>
+            </tr> -->
+          </table>
+    		</div>
+    	</div>
+
+      <!-- <div class="mceActionPanel">
+        <div style="float: right">
+          <input type="submit" id="insert" name="insert" value="{#insert}" />
+        </div>
+        <div style="float: right">
+          <input type="button" id="cancel" name="cancel" value="{#cancel}" onclick="tinyMCEPopup.close();" />
+        </div>
+      </div> -->
+    </form>
+  </body>
+</html>

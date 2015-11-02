@@ -1,0 +1,31 @@
+#contributors
+  .grid_3= render :partial => 'pages/skyscraper_ad'
+  .grid_13
+    - unless @users.empty?
+      .index_header
+        .index_title
+          %h4 All Contributors
+        .index_options
+          = link_to "Basics", "#", :class => "basic", :onClick => "setActiveStyleSheet('basicCt'); return false;"
+          \|
+          = link_to "Details", "#", :class => "detail", :onClick => "setActiveStyleSheet('detailCt'); return false;"
+        .clear
+      .users_list
+        .list_header
+          .col1 Contributor
+          .col3 Knotebooks
+          .clear
+        .clear  
+        .list_body= render @users
+        .clear
+        .list_footcap
+          .pages= will_paginate @users
+          .clear
+  .clear
+  
+- content_for :css do
+  = stylesheet_link_tag 'basicCt', :rel => "stylesheet", :title => "basicCt"
+  = stylesheet_link_tag 'detailCt', :rel => "alternate stylesheet", :title => "detailCt"
+
+- content_for :javascript do
+  = javascript_include_tag 'styleswitchCt'

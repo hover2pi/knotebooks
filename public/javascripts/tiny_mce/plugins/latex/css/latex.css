@@ -1,0 +1,33 @@
+#src {
+  width: 100%;
+}
+input.radio {border:1px none #000; background:transparent; vertical-align:middle;}
+.panel_wrapper div.current {height:320px;}
+#width {width:50px; vertical-align:middle;}
+#width2 {width:50px; vertical-align:middle;}
+#size {width:100px;}
+
+p.latex_tips {
+  margin-top:1.2em;
+  line-height:1.6em;
+}
+
+p.latex_img {
+  text-align:center;
+  margin:25px;
+}
+
+p.latex_link {
+  text-align:center;
+}
+
+p.latex_link a {
+font-size:1.4em; 
+font-weight:bold;  
+color:#325c9a;
+line-height:1.5em;
+}
+
+p.latex_link a:hover {
+  color:#362f2d;
+}

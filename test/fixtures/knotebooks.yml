@@ -1,0 +1,241 @@
+---
+1:
+  id: 1
+  user_id: 2
+  title: Sample Lesson
+  created_at: 2009-12-11 18:57:54 Z
+  updated_at: 2009-12-11 18:57:54 Z
+  abstract: This is a sample lesson; nothing fancy
+  favorite: false
+  original_id: 
+  delta: true
+2:
+  id: 2
+  user_id: 2
+  title: Newton's Laws
+  created_at: 2009-12-11 18:57:55 Z
+  updated_at: 2009-12-11 18:57:55 Z
+  abstract: "Pulleys, inclined planes, sliding blocks, friction! This post has it all! We also include a bunch of fully explained examples and introduce Newtonian Gravity and Kepler\xE2\x80\x99s Laws. There\xE2\x80\x99s also a Honeymooners reference for kicks. Leave some comments!"
+  favorite: false
+  original_id: 
+  delta: true
+3:
+  id: 3
+  user_id: 2
+  title: The Basics of Vector Algebra
+  created_at: 2009-12-11 18:57:55 Z
+  updated_at: 2009-12-11 18:57:55 Z
+  abstract: "College physics can't be done right without a thorough treatment of vectors. Here\xE2\x80\x99s a vector algebra guide including dot, cross and triple products plus a bunch of examples."
+  favorite: false
+  original_id: 
+  delta: true
+4:
+  id: 4
+  user_id: 2
+  title: The Physics GRE
+  created_at: 2009-12-11 18:57:55 Z
+  updated_at: 2009-12-11 18:57:55 Z
+  abstract: This is some quick and dirty info about the Physics GRE test offered by ETS. Most (not all) physics graduate programs require that you take it, but most "recommend" you take it, which means it's required.
+  favorite: false
+  original_id: 
+  delta: true
+5:
+  id: 5
+  user_id: 2
+  title: Kinematics and Free Body Diagrams
+  created_at: 2009-12-11 18:57:55 Z
+  updated_at: 2009-12-11 18:57:55 Z
+  abstract: "Kinematics is not actually physics in the truest sense since it only answers the \xE2\x80\x9Chow\xE2\x80\x9D of an arbitrary equation, not the \xE2\x80\x9Cwhy\xE2\x80\x9D of the system\xE2\x80\x99s behavior. Here\xE2\x80\x99s an overview that includes dimensional analysis and the equations of motion."
+  favorite: false
+  original_id: 
+  delta: true
+6:
+  id: 6
+  user_id: 2
+  title: LaTeX for Physics
+  created_at: 2009-12-11 18:57:56 Z
+  updated_at: 2009-12-11 18:57:56 Z
+  abstract: This is an introductory guide to the wonderful world of LaTeX, a very special mark-up language that is close to the heart of any scientist. Any time you see a problem in a textbook? LaTeX. A proof in a paper? LaTeX! An equation on Knotebooks? LATEX!!
+  favorite: false
+  original_id: 
+  delta: true
+7:
+  id: 7
+  user_id: 2
+  title: Quick Math Tricks
+  created_at: 2009-12-11 18:57:56 Z
+  updated_at: 2009-12-11 18:57:56 Z
+  abstract: This is going to be a running list of math tricks that might be particularly useful to physics students.
+  favorite: false
+  original_id: 
+  delta: true
+8:
+  id: 8
+  user_id: 2
+  title: Periodicity and Complex Numbers
+  created_at: 2009-12-11 18:57:56 Z
+  updated_at: 2009-12-11 18:57:56 Z
+  abstract: "This lesson introduces the use of complex notation to describe simple harmonic motion. It includes descriptions of motion in springs and both idealized and physical pendulums. "
+  favorite: false
+  original_id: 
+  delta: true
+9:
+  id: 9
+  user_id: 2
+  title: "Basic Facts and Applications about Nuclear Reactions "
+  created_at: 2009-12-11 18:57:56 Z
+  updated_at: 2009-12-11 18:57:56 Z
+  abstract: "This lesson covers the basic mechanics and the concepts behind simple nuclear reactions. I'll also address fission, fusion and even some household applications of nuclear processes. "
+  favorite: false
+  original_id: 
+  delta: true
+10:
+  id: 10
+  user_id: 2
+  title: Work and Energy in Closed Mechanical Systems
+  created_at: 2009-12-11 18:57:56 Z
+  updated_at: 2009-12-11 18:57:56 Z
+  abstract: Here we'll take a look at the conservation (and non conservation) of energy in mechanical systems using multi-step equations of force.
+  favorite: false
+  original_id: 
+  delta: true
+11:
+  id: 11
+  user_id: 2
+  title: What's Wrong with Classical Mechanics?
+  created_at: 2009-12-11 18:57:57 Z
+  updated_at: 2009-12-11 18:57:57 Z
+  abstract: Classical mechanics is great, but it doesn't explain certain physical phenomena. In other cases, it even contradicts experimental results found in other fields of physics, such as thermodynamics and quantum mechanics.
+  favorite: false
+  original_id: 
+  delta: true
+12:
+  id: 12
+  user_id: 2
+  title: "Capacitance and Inductance "
+  created_at: 2009-12-11 18:57:57 Z
+  updated_at: 2009-12-11 18:57:57 Z
+  abstract: This is a good advanced-level high school or introductory undergraduate treatment of capacitance and inductance in circuits.
+  favorite: false
+  original_id: 
+  delta: true
+13:
+  id: 13
+  user_id: 2
+  title: Quantum Energy Levels in Atoms
+  created_at: 2009-12-11 18:57:57 Z
+  updated_at: 2009-12-11 18:57:57 Z
+  abstract: "Here's a lengthy, but plainly worded review of the quantum mechanical behavior of the atom, ionization and electron energy levels, and a brief introduction to spectroscopy. "
+  favorite: false
+  original_id: 
+  delta: true
+14:
+  id: 14
+  user_id: 2
+  title: Quantum Mechanics and Theory
+  created_at: 2009-12-11 18:57:58 Z
+  updated_at: 2009-12-11 18:57:58 Z
+  abstract: This is a VERY text-heavy, but plain language introduction to quantum mechanical theory meant to give a working knowledge of the foundations, techniques and key results of this field.
+  favorite: false
+  original_id: 
+  delta: true
+15:
+  id: 15
+  user_id: 2
+  title: Vector Notation for Quantum Mechanics
+  created_at: 2009-12-11 18:57:58 Z
+  updated_at: 2009-12-11 18:57:58 Z
+  abstract: Here we'll take a look at the "rules" of quantum mechanics and the "bra" and "ket" vector notation of a Hilbert space.
+  favorite: false
+  original_id: 
+  delta: true
+16:
+  id: 16
+  user_id: 2
+  title: Maxwell's Equations
+  created_at: 2009-12-11 18:57:58 Z
+  updated_at: 2009-12-11 18:57:58 Z
+  abstract: James Clerk Maxwell formulated the eponymous set of equations which describe the behavior of and relationship between the electric and magnetic fields. Here's a quick and dirty introduction that includes some examples and several proofs.
+  favorite: false
+  original_id: 
+  delta: true
+17:
+  id: 17
+  user_id: 2
+  title: Linear Operators in Quantum Mechanics
+  created_at: 2009-12-11 18:57:58 Z
+  updated_at: 2009-12-11 18:57:58 Z
+  abstract: Lorem Ipsum Dolor Sit Amet
+  favorite: false
+  original_id: 
+  delta: true
+18:
+  id: 18
+  user_id: 2
+  title: Spin 1/2
+  created_at: 2009-12-11 18:57:58 Z
+  updated_at: 2009-12-11 18:57:58 Z
+  abstract: We analyze the results from the famous Stern-Gerlach experiment in an attempt to formulate a model of spin 1/2 in fermions using the rules of quantum mechanics.
+  favorite: false
+  original_id: 
+  delta: true
+19:
+  id: 19
+  user_id: 2
+  title: Introduction to Quantum Mechanics
+  created_at: 2009-12-11 18:57:59 Z
+  updated_at: 2009-12-11 18:57:59 Z
+  abstract: So it's clear that we need a new framework to describe the phenomena that classical mechanics cannot. Here we'll examine the basics of quantum mechanics, it's interpretations, and some examples of QM vs. CM phenomena.
+  favorite: false
+  original_id: 
+  delta: true
+20:
+  id: 20
+  user_id: 2
+  title: Particle Motion on the Quantum Mechanical Scale
+  created_at: 2009-12-11 18:57:59 Z
+  updated_at: 2009-12-11 18:57:59 Z
+  abstract: Lorem Ipsum Dolor Sit Amet
+  favorite: false
+  original_id: 
+  delta: true
+21:
+  id: 21
+  user_id: 2
+  title: A Reintroduction to Special Relativity
+  created_at: 2009-12-11 18:57:59 Z
+  updated_at: 2009-12-11 18:57:59 Z
+  abstract: This is a graduate-level knotebook about Special Relativity.
+  favorite: false
+  original_id: 
+  delta: true
+22:
+  id: 22
+  user_id: 2
+  title: The Basics of Special Relativity
+  created_at: 2009-12-11 18:57:59 Z
+  updated_at: 2009-12-11 18:57:59 Z
+  abstract: This is a layperson's knotebook of Special Relativity.
+  favorite: false
+  original_id: 
+  delta: true
+23:
+  id: 23
+  user_id: 2
+  title: The Theory of Special Relativity
+  created_at: 2009-12-11 18:57:59 Z
+  updated_at: 2009-12-11 18:57:59 Z
+  abstract: This is an undergraduate-level knotebook on Special Relativity.
+  favorite: false
+  original_id: 
+  delta: true
+24:
+  id: 24
+  user_id: 2
+  title: Motion
+  created_at: 2009-12-11 18:58:00 Z
+  updated_at: 2009-12-11 18:58:00 Z
+  abstract: Lesson on Linear Motion
+  favorite: false
+  original_id: 
+  delta: true

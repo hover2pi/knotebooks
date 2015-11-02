@@ -1,0 +1,19 @@
+.edit_video_container.round_corners
+  .url_container
+    = f.label :url, "YouTube URL:", :class => "knote_video_url"
+    .clear
+    = f.text_field :url, :class => "knote_video_url"
+    .video_tip (E.g. - http://www.youtube.com/watch?v=IrY-FlJ0c7Y)
+    .start_stop
+      .start
+        = f.label :start_time, "Start Time:"
+        = f.text_field :start_time, :class => "knote_video"
+      .stop
+        = f.label :end_time, "End Time:"
+        = f.text_field :end_time, :class => "knote_video"
+    .clear
+  .caption_container
+    = f.label :caption, "Description:"
+    .clear
+    = f.text_area :caption, :class => "knote_video_caption"
+  .clear

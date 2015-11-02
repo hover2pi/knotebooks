@@ -1,0 +1,63 @@
+#update_tabs
+  %ul.tab_list
+    %li= link_to "Current Features", "#current"
+    %li= link_to "In the Pipeline", "#pipeline"
+    %li= link_to "Knotebooks 1.0", "#version1"
+  #current{ :class => "ui-tabs-hide"}
+    .expansion= image_tag ("/images/expansion.png")
+    %p As the accompanying diagram plainly shows, Knotebooks Beta is currently undergoing rapid expansion as we feverishly gather feedback and plan new features and tools. 
+    %p 
+      The idea is simple: online education should reflect the way we learn in the Internet Age. No one wants to spend hours deciphering Wikipedia or trolling through Google search results. Information should be succinct, accessible and (gasp!) customizable. 
+      = link_to 'Read more about our company and our mission here.', pages_path('about')
+    %p With our current functionality, you can view a knotebook, swap out the knotes you don't want with better material and save your hand-crafted version to your favorites! Or... create a knotebook from scratch. Pull in the best multimedia content from all over the Web and mix it with your own work to start contributing. 
+    %p 
+      = RPXNow.popup_code('Create an account for free', 'knotebooks', rpx_login_url, :language => 'en')
+      and let us know what you like and how we can improve.
+  #pipeline{ :class => "ui-tabs-hide"}
+    %p 
+      We have big ideas for this platform and we hope you find in it a truly useful and encouraging source for online education. We believe that the only way to do this is with powerful, student-focused tools, so here are some of the features we'll be rolling out very soon:
+      %ul
+        %li.dft
+          An intuitive
+          %strong draft and publish
+          system so you can privately work on your knotebooks before releasing them to the world;
+        %li.tex
+          A simple 
+          %strong LaTeX equation editor 
+          to more easily generate beautifully rendered math in your knotebooks;
+        %li.imp
+          %strong Content import 
+          which allows a user to pull in an entire document, insert line breaks and publish a new knotebook in minutes;
+        %li.req
+          A dynamic
+          %strong request system
+          where users can suggest specific content from the Knotebooks community;
+        %li.app
+          %strong Audio
+          and
+          %strong application
+          knotes, enabling users to add high quality sound files and interactive elements to their knotebooks;
+        %li.flg
+          and a 
+          %strong flagging system 
+          for miscategorized or objectionable material.
+    %p Stay tuned for these additions and more...
+  #version1{ :class => "ui-tabs-hide"}
+    %p We hope the inherent scalability of Knotebooks to any area of study is apparent. But in addition to expanding the subject matter beyond physics and math, we have some other very big ideas for the next iteration of the site:
+    %p
+      %ul
+        %li Premium accounts for academic institutions, which include privacy and ad controls, content branding and student analytics;
+        %li Class pages organized by instructors, group memberships for closer user collaboration and user-moderated discussion forums;
+        %li Full integration with other social media tools such as Facebook, Twitter and more;
+        %li and Internationalization of both the platform and material, to make the community truly global.
+    %p 
+      If you have suggestions for features you think might be useful, feel free to 
+      %a{ :href => "mailto:contact@knotebooks.com" } contact us 
+      with your feedback!
+  .clear  
+    
+- content_for :javascript do
+  :javascript
+    $(function(){
+      $("#update_tabs").tabs();
+    });

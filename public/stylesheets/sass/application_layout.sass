@@ -1,0 +1,225 @@
+@import constants.sass
+  
+body  
+  :font-family "Myriad Pro", Myriad, Arial, Helvetica, sans-serif
+  :font-size 62.5%
+  :background-color white
+  
+html>body
+  :font-size 16px
+  :color = !black
+  :background = !highlight
+  //:overflow -moz-scrollbars-vertical
+  
+#wrapper
+  :background white
+
+#main
+  :background-color white
+  :padding = !h4 0
+  :width 100%
+      
+#control_bar
+  :background = !black
+  :font-size = !h6
+  :width 100%
+  :color white
+  :padding = !h8 0em
+  a
+    :color white
+    &:hover
+      :text-decoration underline
+  .control_link
+    :text-align right
+
+#adbar, #navigation
+  :background-color = !highlight
+  :border-bottom = !thin
+  :padding = !h6 0
+  :overflow hidden
+  :width 100%
+  :height 90px
+  .nav_border
+    :border = !thin
+    :border-radius 10px
+    :-moz-border-radius 10px
+    :-webkit-border-radius 10px
+  #nav
+    :width 760px
+    :height 90px
+    :float left
+    #logo 
+      :float left
+      :width 185px
+      a
+        :height 34px
+        :width 172px
+        :display block
+        :margin-left = !h9
+        :text-indent -5000px
+        :background transparent url('/images/knotebooks.png') no-repeat top
+        &:hover
+          :background-position bottom
+    .nav_bar_buttons
+      :margin = !h7 0 0 !h3
+      :float left
+      a
+        :vertical-align middle
+        :padding = !h8 !h6
+        :margin = !h9 !h8
+        :background !highlight
+        :border-radius 8px
+        :-moz-border-radius 8px
+        :-webkit-border-radius 8px
+        :color = !black
+        :border = 1px solid !highlight
+        &:hover
+          :background = !grey_light
+          :border-color = !grey_light
+          :color = #000000
+        &:active
+          :border-color = !grey_mid
+    #search_bar
+      :background = white url('/images/search_big.png') no-repeat 705px 8px
+      :margin-top = !h6
+      :float left
+      :width 740px
+      .search_form
+        :margin = !h9 !h1 !h9 !h7
+        input
+          :font-size = 1.5em
+          :width 100%
+          :border = none !important
+          :color = !black
+  #user_nav
+    :width 180px
+    :height 90px
+    :float right
+    :overflow hidden
+    #gravatar
+      :float left
+      :height 90px
+      img
+        :background-color white
+        :border = !thin
+          :color = !black
+    #nav_box_container
+      :font-size = !h6
+      :float right
+      :width 85px
+      :height 90px
+      .nav_box
+        :display block
+        :width 85px
+        a
+          :display block
+          :padding = !h8 !h7
+          :background !highlight
+          :border-radius 8px
+          :-moz-border-radius 8px
+          :-webkit-border-radius 8px
+          :color = !black
+          :border = 1px solid !highlight
+          &:hover
+            :background = !grey_light
+            :border-color = !grey_light
+            :color = #000000
+          &:active
+            :border-color = !grey_mid
+        img
+          :vertical-align bottom
+          :margin-right 6px
+        &.mid
+          :margin 1px 0
+
+#footer
+  :font-size = !h6
+  :border-top = !thin
+  :background-color = !highlight
+  :padding-bottom = !h6
+  :color = #777777
+  a
+    :color = #777777
+    &:hover 
+      :color = !black
+  .footer_links
+    :padding-top = !h6
+    :text-align right
+  .unobtainium
+    :padding-top = !h7
+    img
+      :height 15px
+      :opacity .4
+      &:hover
+        :opacity .8
+    :color = !grey_dark    
+
+.skyscraper
+  :z-index 100
+  :width 160px !important
+  :height 600px !important
+  :margin 0 !important
+  :padding 0 !important
+  :border none !important
+
+.errorExplanation
+  :border = !thin
+  :border-color = !yellow_dark
+  :padding = 1em
+  :background-color = !yellow_light
+  :margin-bottom = !h5
+  h2
+    :font-size = !h4
+    :padding-bottom = !h8
+  ul
+    :margin-top = !h7
+    li:last-child
+      :margin-bottom 0
+  p
+    :margin 0
+
+.fieldWithErrors
+  :color = !red_dark
+  :font-weight bold
+  :padding 0
+  :margin 0
+  :display inline
+  :overflow hidden
+
+#ajax-status
+  :display none
+  :position fixed
+  :top 0.25em
+  :text-align center
+  :width 100%
+  :z-index 100
+  span#ajax-message
+    :background = !yellow_mid
+    :-moz-border-radius 0 0 8px 8px
+    :-webkit-border-radius 0 0 8px 8px
+    :border-radius 0 0 8px 8px
+    :padding = !h8 !h7
+    :font-weight bold
+    :border = 1px solid !yellow_dark
+    
+#jGrowl
+  .jGrowl-notification, .jGrowl-closer, .ui-state-highlight, .ui-corner-all, .default
+    :background = #000000
+    :color = white
+    :border = 1px solid white 
+    :opacity 0.90
+      :-ms-filter "progid:DXImageTransform.Microsoft.Alpha(Opacity=90)"
+      :filter progid:DXImageTransform.Microsoft.Alpha(Opacity=90)
+    :width 235px
+    :padding 10px
+    :margin-top 5px
+    :margin-bottom 5px
+    :font-family "Myriad Pro", Myriad, Arial, Helvetica, sans-serif
+    :font-size 1.3em
+    :line-height 1.3em
+    :display none
+    :-moz-border-radius 5px
+    :-webkit-border-radius 5px
+    .message
+      :margin-top = !h8
+      

@@ -1,0 +1,106 @@
+@import constants.sass
+
+a.detail
+  :color = !grey_mid
+  &:hover
+    :cursor default
+
+.users_list
+  :text-align left
+  :font-size = !h6
+  p
+    :max-height = !h4*5
+    :margin 0
+    :line-height = !h4
+    :overflow hidden    
+  ul
+    li
+      :list-style-image none
+      :margin-left 0
+      :padding-bottom = 0
+  .list_footcap
+    :background = !highlight url('/images/list_header.png') repeat-x bottom
+    :color = !black
+    :padding = !h8
+    :text-align right
+    :-moz-border-radius 0 0 7px 7px
+    :-webkit-border-radius 0 0 7px 7px
+    :border-radius 0 0 7px 7px
+    :border 
+      :bottom = !thin
+      :left = !thin
+      :right = !thin
+  .list_header
+    :background = !highlight url('/images/list_header.png') repeat-x top
+    :color = !black
+    :padding = !h8 0 !h9 0
+    :-moz-border-radius 7px 7px 0 0 
+    :-webkit-border-radius 7px 7px 0 0
+    :border-radius 7px 7px 0 0
+    :border 
+      :top = !thin
+      :left = !thin
+      :right = !thin
+    .col1, .col2, .col3
+      :font-weight bold
+      :float left
+      :padding-left = !h8
+    .col1
+      :width 170px
+    .col2
+      :width 412px
+    .col3
+      :width 130px
+  .list_body
+    :border-bottom = !dark
+    .list_elements    
+      :border-top = !dark
+      &.even
+        :background-color = !lightest
+      &.odd
+        :background-color white
+      &:hover
+        :background = !harmony_light
+      .user_info
+        :line-height 19px
+        :padding = !h8
+        :overflow hidden
+        :white-space nowrap
+        :height 58px
+        .user_gravatar
+          :position absolute
+          :margin 3px 0 0 3px
+          img
+            :background-color white
+            :border = 1px solid !black
+            :width 50px
+            :height 50px
+        .user_deets
+          :margin-left 65px
+          .wee_grabatar
+            :display none
+          .stats
+            span.kn_count, span.cm_count
+              img
+                :border none
+                :margin-right = 4px
+                :vertical-align middle
+      .user_knotebooks
+        :padding = !h8 !h7 !h8 0
+        :height 58px
+        .wee_grabatar
+          :float left
+          :margin = 3px !h6 0 0
+          :height 50px
+          img
+            :width 120px
+            :max-height 50px
+        ul.contributor
+          li
+            :margin-bottom 0
+            :line-height 19px
+            :overflow hidden
+            :text-overflow ellipsis
+            :-o-text-overflow ellipsis
+            :white-space nowrap
+            :color = !grey_dark

@@ -1,0 +1,88 @@
+.grid_3= render :partial => 'pages/skyscraper_ad'
+- unless @new_user
+  .grid_13#profile_edit_page
+    %h3 Edit Your Profile
+    %hr
+    - form_for @user, :html => { :multipart => true } do |f|
+      %table
+        %tr
+          %td.profile_data.lefty
+            = f.label "Gravatar"
+            .gravytar= gravatar_for(current_user, :size => 69)
+            .change_it= link_to 'Change your gravatar.', 'http://en.gravatar.com/site/login/', :target => '_blank'
+            .tips 
+              Don't have a gravatar yet?  We think they're pretty great. Get one free at
+              = link_to 'gravatar.com', 'http://gravatar.com/', :target => '_blank'
+          %td.profile_data.righty
+            = f.label :website, "Website URL"
+            = f.text_field :website
+            %br
+            = f.label :website_description, "Description"
+            = f.text_field :website_description
+        %tr
+          %td.profile_data.lefty
+            = f.label :education, "School"
+            = f.text_area :education
+            .tips (E.g. - "Undergrad at SUNY Stony Brook" or "Ph.D. in Astrophysics")
+          %td.profile_data.righty
+            = f.label :work
+            = f.text_area :work
+            .tips (E.g. - "Professor of physics at SUNY Stony Brook" or "Coffee shop barista")
+      .profile_data
+        = f.label :bio, "Tell us a little about yourself"
+        = f.text_area :bio
+        .tips (What are your interests, hobbies, motivations, ideas, thoughts, etc.? Tell us something about you!)
+      %table
+        %tr
+          %td.profile_data.lefty
+            %label
+              Manage External Accounts 
+            - if @user.using_rpx?
+              %ul.rpx_ids
+                - @user.rpx_identifiers.each do |rpx|
+                  %li.provider= rpx.provider_name
+            = rpx_popup(:link_text => @user.using_rpx? ? "Link another external account" : "Enable RPX authentication", :app_name => RPX_APP_NAME, :return_url => authorize_url, :add_rpx => true, :unobtrusive => false)
+            .tips (Recommended: You can login using multiple external accounts like Twitter, Facebook and Google so you won't need passwords at all!)
+          %td.profile_data.reddy.righty
+            = f.label "Brand your content"
+            - if @user.organization?  
+              %p As an organization, you can brand your content by entering your organization name and logo URL in the fields below!
+              = f.label :org_name, "Name"
+              = f.text_field :org_name
+              %br
+              = f.label :logo, "Logo URL"
+              = f.text_field :logo
+            - else
+              %p As an organization, you can brand all of your content with your organization's name and logo! This brand will appear within all knotebooks and video knotes you create.
+              %p= link_to "Request organization status.", "mailto:contact@knotebooks.com" 
+      %button Save changes      
+      
+- else
+  .grid_13#signup_page
+    %h4 Create Your Account
+    %hr
+    - form_for @user, :html => { :id => "signup_form" } do |f|
+      %table
+        %tr
+          %td.profile_data.lefty
+            = f.label :login, 'Choose a Username', :class => 'required'
+            = f.text_field :login
+            .tips (Maximum 15 characters)
+          %td.profile_data.righty
+            = f.label :name, 'Your Real Name', :class => 'required'
+            = f.text_field :name
+            .tips (This will appear on your profile only.)
+        %tr
+          %td.profile_data.lefty
+            = f.label :email, 'Your Email Address', :class => 'required'
+            = f.text_field :email
+            .tips (For internal purposes only. We won't send you anything!)
+          %td.profile_data.righty
+            = f.label :difficulty, 'Approximate Physics Level', :class => 'required'
+            = f.select :difficulty, [['General Audience', 0], ['High School', 0.25], ['Undergrad', 0.50], ['Graduate+', 0.75]] 
+            .tips (This helps us index and recommend content for you.)  
+      .profile_data
+        .tou_scroll= render :partial => 'pages/tou'
+        .tips By clicking "Create my account" below, you fully agree to these Terms of Use
+      %button{ :type => 'submit' } Create my account
+.clear

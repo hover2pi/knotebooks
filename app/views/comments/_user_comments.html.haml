@@ -1,0 +1,58 @@
+#comments
+  .container_16
+    - if logged_in?
+      .grid_3= render :partial => 'pages/skyscraper_ad'
+      .grid_13
+        - unless @comments.empty?
+          .comments_container
+            .comments_title
+              Comments for
+              = link_to @user.login, @user
+              (
+              = @comments.count
+              )
+            .clear
+            .comments_list= render :partial => @comments
+            .clear
+          .clear
+        .comments_submit_form
+          .comments_title
+            Leave a comment for
+            = link_to @user.login, @user
+          .clear
+          - form_for [@user, Comment.new] do |comment|
+            .commenter
+              = link_to current_user.login, current_user
+              said:
+            .clear
+            = comment.text_area :body, :class => 'RTE comment_text'
+            .clear
+            %br
+            %button.submit_comment{ :type => 'submit'} Submit comment
+    - else
+      - unless @comments.empty?
+        .grid_3= render :partial => 'pages/skyscraper_ad'
+        .grid_13
+          .comments_container
+            .comments_title
+              Comments for
+              = link_to @user.login, @user
+              (
+              = @comments.count
+              )
+            .clear
+            .comments_list= render :partial => @comments
+            .clear
+          .clear
+          .comments_title
+            = RPXNow.popup_code('Login or Sign Up', 'knotebooks', rpx_login_url, :language => 'en')
+            to comment!
+          .clear
+      - else
+        .login_to_comment
+          .comments_title
+            No comments yet.
+            = RPXNow.popup_code('Login or Sign Up', 'knotebooks', rpx_login_url, :language => 'en')
+            to start the discussion!
+      .clear
+    .clear

@@ -1,0 +1,9 @@
+#control_bar.inverse_links
+  .container_16
+    .grid_14
+      » Most recent:
+      = link_to Knotebook.last.title, Knotebook.last
+    .grid_2.control_link
+      - if logged_in?    
+        = link_to "Log out", logout_path, { :title => "Log out" }
+    .clear
