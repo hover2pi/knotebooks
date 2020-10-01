@@ -1,6 +1,5 @@
 GEM
-  remote: http://rubygems.org/
-  remote: http://gems.github.com/
+  remote: https://rubygems.org/
   specs:
     RedCloth (4.2.3)
     actionmailer (2.3.8)
@@ -42,7 +41,7 @@ GEM
       activeresource (= 2.3.8)
       activesupport (= 2.3.8)
       rake (>= 0.8.3)
-    rake (0.8.7)
+    rake (13.0.1)
     refraction (0.2.0)
     rpx_now (0.6.12)
       json_pure
